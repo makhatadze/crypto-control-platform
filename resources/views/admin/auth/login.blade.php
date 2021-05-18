@@ -31,8 +31,8 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group @error('password') has-error @enderror"">
-                                <input type="text" class="form-control" name="password" placeholder="Password">
+                            <div class="form-group @error('password') has-error @enderror">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
                                 @error('password')
                                 <div id="password-error" class="help-block animated fadeInDown">
                                     {{$message}}

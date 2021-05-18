@@ -21,4 +21,12 @@ Route::prefix('admin')
                 Route::get('login',[AuthController::class,'loginView'])->name('loginView');
                 Route::post('login',[AuthController::class,'login'])->name('login');
             });
+
+        Route::middleware('auth')
+            ->group(function () {
+                Route::get('/', function () {
+                    dd('admin');
+                });
+
+            });
     });
