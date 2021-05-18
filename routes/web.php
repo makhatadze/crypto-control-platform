@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::middleware('loggedin')
             ->group(function () {
-
+                Route::get('login',[AuthController::class,'loginView'])->name('loginView');
+                Route::post('login',[AuthController::class,'login'])->name('login');
             });
     });
