@@ -3,7 +3,7 @@
  *  app/Http/Requests/Auth/LoginRequest.php
  *
  * Date-Time: 18.05.21
- * Time: 11:47
+ * Time: 12:58
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
 namespace App\Http\Requests\Auth;
