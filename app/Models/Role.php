@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Models
  *
  * @property integer $id
- * @property string name
- * @property string slug
- * @property string created_at
- * @property string updated_at
+ * @property string $name
+ * @property string $slug
+ * @property string $created_at
+ * @property string $updated_at
  */
 class Role extends Model
 {
