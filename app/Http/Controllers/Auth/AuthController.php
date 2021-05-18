@@ -31,10 +31,10 @@ class AuthController extends Controller
      *
      * @param LoginRequest $request
      *
-     * @return void
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Exception
      */
-    public function login(LoginRequest $request): void
+    public function login(LoginRequest $request)
     {
         if (!\Auth::attempt([
             'email' => $request->email,
@@ -42,6 +42,8 @@ class AuthController extends Controller
         ])) {
             throw new \RuntimeException('Wrong email or password.');
         }
+
+        return redirect('admin/');
     }
 
     public function logout()

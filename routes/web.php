@@ -25,6 +25,8 @@ Route::prefix('admin')
 
         Route::middleware('auth')
             ->group(function () {
+                Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
                 Route::redirect('/', 'admin/user');
 
                 Route::get('/user', [UsersController::class,'index']);
