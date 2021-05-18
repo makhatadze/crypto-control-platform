@@ -40,7 +40,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ])) {
-            throw new \RuntimeException('Wrong email or password.');
+            return back()->with('danger','Email or Password is incorrect!');
         }
 
         return redirect('admin/');
