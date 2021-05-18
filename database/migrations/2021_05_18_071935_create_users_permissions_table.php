@@ -3,7 +3,7 @@
  *  database/migrations/2021_05_18_071935_create_users_permissions_table.php
  *
  * Date-Time: 18.05.21
- * Time: 11:22
+ * Time: 11:39
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
 use Illuminate\Database\Migrations\Migration;
