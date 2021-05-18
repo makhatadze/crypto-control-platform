@@ -17,7 +17,7 @@ class CreateRolesPermissionsTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('roles_permissions', function (Blueprint $table) {
             $table->bigInteger('role_id')->unsigned();
@@ -36,7 +36,7 @@ class CreateRolesPermissionsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('roles_permissions');
     }
