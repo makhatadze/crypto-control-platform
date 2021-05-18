@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +25,9 @@ Route::prefix('admin')
 
         Route::middleware('auth')
             ->group(function () {
-                Route::get('/', function () {
-                    dd('admin');
-                });
+                Route::redirect('/', 'admin/user');
+
+                Route::get('/user', [UsersController::class,'index']);
 
             });
     });

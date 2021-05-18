@@ -25,9 +25,9 @@
                             <div class="form-group @error('email') has-error @enderror">
                                 <input type="text" class="form-control" name="email" placeholder="Email">
                                 @error('email')
-                                    <div id="email-error" class="help-block animated fadeInDown">
-                                        {{$message}}
-                                    </div>
+                                <div id="email-error" class="help-block animated fadeInDown">
+                                    {{$message}}
+                                </div>
                                 @enderror
                             </div>
 
@@ -52,8 +52,6 @@
                             <div class="form-group">
                                 <input type="submit" value="Login" class="btn btn-primary btn-block">
                             </div>
-
-
                         </form>
 
                         <div class="copy-text">
