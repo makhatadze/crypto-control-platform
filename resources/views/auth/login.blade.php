@@ -1,4 +1,4 @@
-@extends('layout.login')
+@extends('layout.auth')
 @section('head')
     <link rel="stylesheet" href="{{ asset('../assets/css/icons.css') }}"/>
     <link rel="stylesheet" href="{{ asset('../assets/css/bootstrap.min.css') }}"/>
