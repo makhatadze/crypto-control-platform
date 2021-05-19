@@ -1,4 +1,4 @@
-@extends('admin.layout.login')
+@extends('layout.login')
 @section('head')
     <link rel="stylesheet" href="{{ asset('../assets/css/icons.css') }}"/>
     <link rel="stylesheet" href="{{ asset('../assets/css/bootstrap.min.css') }}"/>
@@ -51,6 +51,9 @@
                             @csrf
                             <div class="form-group">
                                 <input type="submit" value="Login" class="btn btn-primary btn-block">
+                            </div>
+                            <div class="form-group text-center">
+                                Don't have an account?  <a href="{{route('registerView')}}">Sign Up </a>
                             </div>
                         </form>
 

@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layout.main')
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('../assets/plugins/jquery-steps/css/jquery.steps.css') }}"/>
@@ -36,14 +36,14 @@
 
     <!-- main content start-->
     <div class="main-content">
-    @include('admin.layout.components.header')
+    @include('layout.components.header')
         <!--body wrapper start-->
         <div class="wrapper">
-            @include('admin.layout.components.breadcrumb')
+            @include('layout.components.breadcrumb')
             @yield('wrapper')
         </div>
         <!-- End Wrapper-->
-        @include('admin.layout.components.footer')
+        @include('layout.components.footer')
     </div>
     <!--End main content -->
 

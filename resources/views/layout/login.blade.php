@@ -1,8 +1,8 @@
-@extends('.admin.layout.base')
+@extends('layout.base')
 
 @section('body')
     <body class="sticky-header">
-    @include('admin.layout.components.alert')
+    @include('layout.components.alert')
     @yield('content')
     <!-- BEGIN: JS Assets-->
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>

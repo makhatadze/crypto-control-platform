@@ -1,4 +1,4 @@
-@extends('admin.layout.left-menu')
+@extends('layout.left-menu')
 @section('subhead')
     <title>Users</title>
 @endsection

@@ -1,6 +1,5 @@
 <!--Start Page Title-->
 <div class="page-title-box">
-    <h4 class="page-title">Form Wizard</h4>
     <ol class="breadcrumb">
         <li>
             <a href="#">Dashboard</a>
