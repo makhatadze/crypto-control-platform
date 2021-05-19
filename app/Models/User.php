@@ -21,6 +21,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $name
  * @property string $username
  * @property string|null $email
+ * @property integer $status
  * @property string|null $email_verified_at
  * @property string $password
  * @property string $remember_token
@@ -30,6 +31,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, ScopeFilter;
+
+    public const USER_ACTIVE = 1;
+    public const USER_BLOCK = 2;
+    public const USER_PENDING = 0;
 
     /**
      * The attributes that are mass assignable.

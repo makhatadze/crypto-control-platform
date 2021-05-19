@@ -20,7 +20,7 @@ class AddStatusColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('status')->after('email')->default(3);
+            $table->integer('status')->after('email')->default(0);
         });
     }
 

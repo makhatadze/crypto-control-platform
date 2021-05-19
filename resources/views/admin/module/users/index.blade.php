@@ -31,12 +31,13 @@
                                 <th>
                                     <input onchange="this.form.submit()" value="{{Request::get('email')}}" type="email" class="form-control" maxlength="25" name="email">
                                 </th>
+
                                 <th>
                                         <select onchange="this.form.submit()" name="status" class="form-control input">
                                             <option {{Request::get('status') === '' ? 'selected' : ''}} value="">All</option>
                                             <option {{Request::get('status') === '1' ? 'selected' : ''}} value="1">Active</option>
                                             <option {{Request::get('status') === '2' ? 'selected' : ''}} value="2">Block</option>
-                                            <option {{Request::get('status') === '3' ? 'selected' : ''}} value="3">Pending</option>
+                                            <option {{Request::get('status') === '3' ? 'selected' : ''}} value="0">Pending</option>
                                         </select>
                                 </th>
                                 <th></th>
