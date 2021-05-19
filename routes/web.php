@@ -29,7 +29,8 @@ Route::prefix('admin')
 
                 Route::redirect('/', 'admin/user');
 
-                Route::get('/user', [UsersController::class,'index']);
+                Route::resource('/user', UsersController::class)
+                    ->name('index','userIndex');
 
             });
     });

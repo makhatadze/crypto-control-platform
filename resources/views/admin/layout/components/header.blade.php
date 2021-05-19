@@ -9,7 +9,7 @@
         <ul class="notification-menu">
             <li>
                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <img src="assets/images/users/avatar-6.jpg" alt="" />
+                    <img src="/assets/images/users/avatar-6.jpg" alt="" />
                     {{auth()->user()->name}}
                     <span class="caret"></span>
                 </a>
