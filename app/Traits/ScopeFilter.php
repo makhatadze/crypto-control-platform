@@ -109,6 +109,7 @@ trait ScopeFilter
     /**
      * @param $query
      * @param $status
+     *
      * @return mixed
      */
     public function scopeStatus($query, $status)

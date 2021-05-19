@@ -10,6 +10,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Mail\SignUpMail;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -21,7 +26,7 @@ class AuthController extends Controller
      */
     public function loginView()
     {
-        return view('admin.auth.login',[
+        return view('auth.login',[
 
         ]);
     }
@@ -43,7 +48,31 @@ class AuthController extends Controller
             return back()->with('danger','Email or Password is incorrect!');
         }
 
-        return redirect('admin/');
+        return redirect('/');
+    }
+
+    /**
+     * Show specified view.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function registerView()
+    {
+        return view('auth.register',[
+
+        ]);
+    }
+
+    public function register(RegisterRequest $request) {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password)
+        ]);
+
+        Mail::to($request['email'])
+            ->queue(new SignUpMail([]));
     }
 
     public function logout()

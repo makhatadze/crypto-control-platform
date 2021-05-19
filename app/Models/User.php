@@ -22,6 +22,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $username
  * @property string|null $email
  * @property integer $status
+ * @property string $phone
  * @property string|null $email_verified_at
  * @property string $password
  * @property string $remember_token
@@ -45,6 +46,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone'
     ];
 
     /**
