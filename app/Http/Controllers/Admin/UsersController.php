@@ -10,14 +10,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index()
+
+
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository) {
+        $this->userRepository = $userRepository;
+    }
+
+    public function index(Request $request)
     {
         return view('admin.module.users.index', [
-
+            'users' => $this->userRepository->getData($request)
         ]);
     }
 }

@@ -1,5 +1,4 @@
 @extends('admin.layout.left-menu')
-
 @section('subhead')
     <title>Users</title>
 @endsection
@@ -10,56 +9,57 @@
     <div class="row">
         <div class="col-md-12">
             <div class="white-box">
-                <h2 class="header-title">Basic example</h2>
+                <h2 class="header-title">Users</h2>
                 <div class="table-responsive">
                     <table id="example" class="display table">
                         <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
+                        <tr>
+                            <form method="GET" action="{{route('userIndex')}}">
+                                <th>
+                                    <input onchange="this.form.submit()" value="{{Request::get('id')}}" type="text" class="form-control" placeholder="" maxlength="25" name="id">
+                                </th>
+                                <th>
+                                    <input onchange="this.form.submit()" value="{{Request::get('name')}}" type="text" class="form-control" maxlength="25" name="name">
+                                </th>
+                                <th>
+                                    <input onchange="this.form.submit()" value="{{Request::get('email')}}" type="email" class="form-control" maxlength="25" name="email">
+                                </th>
+                                <th>
+                                        <select onchange="this.form.submit()" name="status" class="form-control input">
+                                            <option {{Request::get('status') === '' ? 'selected' : ''}} value="">All</option>
+                                            <option {{Request::get('status') === '1' ? 'selected' : ''}} value="1">Active</option>
+                                            <option {{Request::get('status') === '2' ? 'selected' : ''}} value="2">Block</option>
+                                            <option {{Request::get('status') === '3' ? 'selected' : ''}} value="3">Pending</option>
+                                        </select>
+                                </th>
+                                <th></th>
+                            </form>
+                        </tr>
+
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Gloria Little</td>
-                            <td>Systems Administrator</td>
-                            <td>Ichae Semos</td>
-                            <td>59</td>
-                            <td>2009/04/10</td>
-                            <td>$237,500</td>
-                        </tr>
-                        <tr>
-                            <td>Bradley Greer</td>
-                            <td>Php Developer</td>
-                            <td>London</td>
-                            <td>41</td>
-                            <td>2012/10/13</td>
-                            <td>$132,000</td>
-                        </tr>
-                        <tr>
-                            <td>Mark Doe</td>
-                            <td>Personnel Lead</td>
-                            <td>Edinburgh</td>
-                            <td>35</td>
-                            <td>2012/09/26</td>
-                            <td>$213,500</td>
-                        </tr>
-                        <tr>
-                            <td>Jenette Caldwell</td>
-                            <td>Development Lead</td>
-                            <td>Ichae Semos</td>
-                            <td>30</td>
-                            <td>2011/09/03</td>
-                            <td>$345,000</td>
-                        </tr>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{$user->id}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>Status</td>
+                                <td>Actions</td>
+                            </tr>
+                        @endforeach
+
+
                         </tbody>
                     </table>
                 </div>
-
+                {{ $users->appends(request()->query())->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

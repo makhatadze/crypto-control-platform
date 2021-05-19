@@ -51,7 +51,7 @@ class BaseRepository implements EloquentRepositoryInterface
     public function getData($request) {
         $data = $this->model->filter($request);
 
-        $perPage = 10;
+        $perPage = 1;
 
         if ($request->filled('per_page')) {
             $perPage = $request['per_page'];
