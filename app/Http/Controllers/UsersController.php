@@ -9,6 +9,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WalletRequest;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -44,7 +45,10 @@ class UsersController extends Controller
         ]);
     }
 
-    public function setWallet(User $user) {
+    public function setWallet(User $user, WalletRequest $request) {
+        if ($request->post()) {
+            dd('request movida');
+        }
         return view('module.users.set-wallet', [
             'user' => $this->userRepository->find($user->id)
         ]);

@@ -59,7 +59,7 @@
                                     <td>Active</td>
                                 @endif
                                 <td>
-                                    <a href="{{route('userEditView',$user->id)}}">
+                                    <a href="{{route('setWallet',$user->id)}}">
                                        Set Wallet
                                     </a>
                                     <a class="ml-2" href="{{route('userEditView',$user->id)}}">
