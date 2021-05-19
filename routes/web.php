@@ -30,6 +30,8 @@ Route::middleware('auth')
         Route::redirect('/', '/user');
 
         Route::resource('/user', UsersController::class)
-            ->name('index', 'userIndex');
+            ->name('index', 'userIndex')
+            ->name('edit','userEditView')
+        ;
 
     });

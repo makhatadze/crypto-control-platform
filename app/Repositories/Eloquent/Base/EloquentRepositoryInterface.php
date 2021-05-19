@@ -24,4 +24,10 @@ interface EloquentRepositoryInterface
      * @return Paginator
      */
     public function paginate(int $perPage, array $columns): ?Paginator;
+
+    /**
+     * @param integer $id
+     * @param array $columns
+     */
+    public function find(int $id, $columns = ['*']);
 }

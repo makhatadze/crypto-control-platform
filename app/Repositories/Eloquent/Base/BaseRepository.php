@@ -51,12 +51,25 @@ class BaseRepository implements EloquentRepositoryInterface
     public function getData($request) {
         $data = $this->model->filter($request);
 
-        $perPage = 1;
+        $perPage = 10;
 
         if ($request->filled('per_page')) {
             $perPage = $request['per_page'];
         }
 
         return $data->paginate($perPage);
+    }
+
+    /**
+     * Find model by the given ID
+     *
+     * @param integer $id
+     * @param array $columns
+     *
+     * @return mixed
+     */
+    public function find(int $id, $columns = ['*'])
+    {
+        return $this->model->find($id, $columns);
     }
 }

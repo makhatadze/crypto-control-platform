@@ -51,8 +51,21 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>Status</td>
-                                <td>Actions</td>
+                                @if($user->status === 0)
+                                    <td>Pending</td>
+                                @elseif($user->status === 2)
+                                    <td>Block</td>
+                                @else
+                                    <td>Active</td>
+                                @endif
+                                <td>
+                                    <a href="{{route('userEditView',$user->id)}}">
+                                       Set Wallet
+                                    </a>
+                                    <a class="ml-2" href="{{route('userEditView',$user->id)}}">
+                                        <i class="icon-pencil"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
 
