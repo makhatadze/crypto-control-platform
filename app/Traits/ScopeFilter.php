@@ -105,4 +105,14 @@ trait ScopeFilter
     {
         return $query->where('email', 'like', '%' . $email . '%');
     }
+
+    /**
+     * @param $query
+     * @param $status
+     * @return mixed
+     */
+    public function scopeStatus($query, $status)
+    {
+        return $query->where('status',$status);
+    }
 }

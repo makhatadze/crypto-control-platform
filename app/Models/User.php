@@ -84,6 +84,10 @@ class User extends Authenticatable
                 'hasParam' => true,
                 'scopeMethod' => 'email'
             ],
+            'status' => [
+                'hasParam' => true,
+                'scopeMethod' => 'status'
+            ]
         ];
     }
 }
