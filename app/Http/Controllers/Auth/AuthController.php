@@ -63,6 +63,9 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @param \App\Http\Requests\Auth\RegisterRequest $request
+     */
     public function register(RegisterRequest $request) {
         $user = User::create([
             'name' => $request->name,
@@ -70,9 +73,13 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password)
         ]);
-
+        $data = [
+            'email' => $request->email
+        ];
         Mail::to($request['email'])
-            ->queue(new SignUpMail([]));
+            ->queue(new SignUpMail($data));
+
+        return back()->with('success','Your application submit.');
     }
 
     public function logout()
