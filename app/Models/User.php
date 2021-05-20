@@ -8,6 +8,7 @@
  */
 namespace App\Models;
 
+use App\Traits\HasRolesAndPermissions;
 use App\Traits\ScopeFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -31,7 +32,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, ScopeFilter;
+    use HasFactory, Notifiable, ScopeFilter, HasRolesAndPermissions;
 
     public const USER_ACTIVE = 1;
     public const USER_BLOCK = 2;

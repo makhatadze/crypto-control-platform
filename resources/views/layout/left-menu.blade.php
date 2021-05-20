@@ -25,11 +25,13 @@
         <!--logo-->
 
         <div class="left-side-inner">
+            @role('admin')
             <!--Sidebar nav-->
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li><a href="{{route('userIndex')}}"><i class="icon-people"></i> <span>Users</span></a></li>
             </ul>
             <!--End sidebar nav-->
+            @endrole
         </div>
     </div>
     <!--End left side menu-->
