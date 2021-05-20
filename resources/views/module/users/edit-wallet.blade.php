@@ -15,8 +15,8 @@
                         <label class="col-md-2 control-label">Status</label>
                         <div class="col-md-10">
                             <select name="status" class="form-control input">
-                                <option {{$user->status === '1' ? 'selected' : ''}} value="1">Active</option>
-                                <option {{$user->status === '2' ? 'selected' : ''}} value="2">Block</option>
+                                <option {{$user->status === 1 ? 'selected' : ''}} value="1">Active</option>
+                                <option {{$user->status === 2 ? 'selected' : ''}} value="2">Block</option>
                             </select>
                         </div>
                     </div>

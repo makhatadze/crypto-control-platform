@@ -36,9 +36,9 @@ class WalletRequest extends FormRequest
         }
         else{
             $rules = [
-                'wallet' => ['string', 'max:255', Rule::unique('wallets')->ignore($this->wallet,'wallet')],
-                'total_balance' => 'numeric',
-                'available_balance' => 'numeric'
+                'wallet' => ['string', 'max:255', Rule::unique('wallets')->ignore($this->wallet,'wallet'),'nullable'],
+                'total_balance' => 'numeric|nullable',
+                'available_balance' => 'numeric|nullable'
             ];
         }
         return $rules;

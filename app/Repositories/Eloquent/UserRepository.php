@@ -63,8 +63,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         $model = $model->update([
             'wallet' => $data['wallet'],
-            'total_balance' => $data['total_balance'],
-            'available_balance' => $data['available_balance'],
+            'total_balance' => $data['total_balance'] ?: "",
+            'available_balance' => $data['available_balance'] ?: "",
         ]);
 
         if ($data['status'] != $user->status) {
