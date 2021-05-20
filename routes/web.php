@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
@@ -48,4 +49,5 @@ Route::middleware('auth')
 
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
+        Route::get('/deposit',[DepositController::class,'index'])->name('depositIndex');
     });

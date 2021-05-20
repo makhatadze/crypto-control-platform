@@ -45,9 +45,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             'available_balance' => $data['available_balance'] ?: "",
         ]);
 
-        $user->update([
-            'status' => $data['status']
-        ]);
+        if ($model) {
+            $user->update([
+                'status' => $data['status']
+            ]);
+        }
 
         Mail::to($user->email)
             ->queue(new StatusChangeMail($data));
@@ -72,9 +74,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
                 ->queue(new StatusChangeMail($data));
         }
 
-        $user->update([
-            'status' => $data['status']
-        ]);
+        if ($model) {
+            $user->update([
+                'status' => $data['status']
+            ]);
+        }
 
         return redirect()->route('userIndex')->with('success', 'Wallet was successfully updated');
 

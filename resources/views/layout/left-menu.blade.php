@@ -33,7 +33,7 @@
                 <li><a href=""><i class="icon-check"></i> <span>Verification</span></a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href=""><i class="icon-login"></i> <span>Deposit</span></a></li>
+                <li><a href="{{route('depositIndex')}}"><i class="icon-login"></i> <span>Deposit</span></a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li><a href=""><i class="icon-logout"></i> <span>Withdraw</span></a></li>
