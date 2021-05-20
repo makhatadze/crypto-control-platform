@@ -25,11 +25,27 @@
         <!--logo-->
 
         <div class="left-side-inner">
+            @user()
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="{{route('myWalletIndex')}}"><i class="icon-wallet"></i> <span>My Wallet</span></a></li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href=""><i class="icon-check"></i> <span>Verification</span></a></li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href=""><i class="icon-login"></i> <span>Deposit</span></a></li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href=""><i class="icon-logout"></i> <span>Withdraw</span></a></li>
+            </ul>
+            @enduser
+            @role('admin')
             <!--Sidebar nav-->
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li><a href="{{route('userIndex')}}"><i class="icon-people"></i> <span>Users</span></a></li>
             </ul>
             <!--End sidebar nav-->
+            @endrole
         </div>
     </div>
     <!--End left side menu-->

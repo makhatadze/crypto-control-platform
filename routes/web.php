@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -20,19 +21,31 @@ Route::middleware('loggedin')
         Route::get('login', [AuthController::class, 'loginView'])->name('loginView');
         Route::post('login', [AuthController::class, 'login'])->name('login');
         Route::get('register', [AuthController::class, 'registerView'])->name('registerView');
-        Route::post('register',[AuthController::class,'register'])->name('register');
+        Route::post('register', [AuthController::class, 'register'])->name('register');
     });
 
 Route::middleware('auth')
     ->group(function () {
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-        Route::redirect('/', '/user');
+        Route::get('', function () {
+           if (auth()->user()->isAdmin()) {
+               return redirect(\route('userIndex'));
+           } else {
+               return redirect(\route('myWalletIndex'));
+           }
+        });
 
-        Route::resource('/user', UsersController::class)
-            ->name('index', 'userIndex')
-            ->name('edit','userEditView');
-        Route::match(['get','post'],'/user/set-wallet/{user}',[UsersController::class,'setWallet'])->name('setWallet');
-        Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
-        Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
+        Route::middleware('can:isAdmin')
+            ->group(function () {
+                Route::resource('/user', UsersController::class)
+                    ->name('index', 'userIndex')
+                    ->name('edit', 'userEditView');
+                Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
+                Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
+                Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
+            });
+
+
+        Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
     });

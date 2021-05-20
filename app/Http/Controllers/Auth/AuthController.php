@@ -43,7 +43,8 @@ class AuthController extends Controller
     {
         if (!\Auth::attempt([
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
+            'status' => 1
         ])) {
             return back()->with('danger','Email or Password is incorrect!');
         }
