@@ -25,4 +25,20 @@ use Illuminate\Database\Eloquent\Model;
 class Verify extends Model
 {
     use HasFactory;
+    public const VERIFY_PASSPORT = 1;
+    public const VERIFY_DRIVING = 2;
+    public const VERIFY_NATIONAL = 3;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'name',
+        'email',
+        'address',
+        'status'
+    ];
 }

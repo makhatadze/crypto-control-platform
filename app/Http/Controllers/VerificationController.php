@@ -8,6 +8,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VerifyRequest;
 use Illuminate\Http\Request;
 
 /**
@@ -19,8 +20,11 @@ class VerificationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(VerifyRequest $request)
     {
+        if ($request->post()) {
+
+        }
         return view('module.verify.index', [
             'user' => auth()->user()
         ]);

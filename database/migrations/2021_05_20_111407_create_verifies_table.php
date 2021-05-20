@@ -3,7 +3,7 @@
  *  database/migrations/2021_05_20_111407_create_verifies_table.php
  *
  * Date-Time: 20.05.21
- * Time: 15:20
+ * Time: 15:35
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
 use Illuminate\Database\Migrations\Migration;
