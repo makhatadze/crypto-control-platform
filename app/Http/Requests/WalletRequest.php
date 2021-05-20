@@ -29,16 +29,15 @@ class WalletRequest extends FormRequest
 
         if ($this->status == User::USER_ACTIVE) {
             $rules = [
-                'wallet' => ['required','string','max:255', Rule::unique('wallets','wallet')->ignore($this->wallet)],
-                'total_balance' => 'required|numeric',
-                'available_balance' => 'required|numeric'
+                'wallet' => ['required', 'string', 'max:255', Rule::unique('wallets', 'wallet')->ignore($this->wallet)],
+                'total_balance' => 'max:10|required|string',
+                'available_balance' => 'max:10|required|string'
             ];
-        }
-        else{
+        } else {
             $rules = [
-                'wallet' => ['string', 'max:255', Rule::unique('wallets')->ignore($this->wallet,'wallet'),'nullable'],
-                'total_balance' => 'numeric|nullable',
-                'available_balance' => 'numeric|nullable'
+                'wallet' => ['string', 'max:255', Rule::unique('wallets', 'wallet')->ignore($this->wallet), 'nullable'],
+                'total_balance' => 'max:10|string|nullable',
+                'available_balance' => 'max:10|string|nullable'
             ];
         }
         return $rules;

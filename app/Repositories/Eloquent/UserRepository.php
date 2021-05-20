@@ -41,8 +41,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $model = $model->create([
             'user_id' => $user->id,
             'wallet' => $data['wallet'],
-            'total_balance' => $data['total_balance'],
-            'available_balance' => $data['available_balance'],
+            'total_balance' => $data['total_balance'] ?: "",
+            'available_balance' => $data['available_balance'] ?: "",
         ]);
 
         $user->update([

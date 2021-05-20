@@ -20,7 +20,7 @@ class StatusChangeMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->data=$data;
+        $this->data = $data;
     }
 
     /**
@@ -28,12 +28,12 @@ class StatusChangeMail extends Mailable
      *
      * @return $this
      */
-    public function build():StatusChangeMail
+    public function build(): StatusChangeMail
     {
         return $this
             ->from(env('MAIL_USERNAME'))
             ->subject('Status Change')
-            ->view('email.status-change',[
+            ->view('email.status-change', [
                 'data' => $this->data
             ]);
     }

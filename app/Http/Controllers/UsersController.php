@@ -57,7 +57,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function editWallet(User $user, WalletRequest $request)
+    public function editWallet(User $user)
     {
         return view('module.users.edit-wallet', [
             'user' => $this->userRepository->find($user->id)
