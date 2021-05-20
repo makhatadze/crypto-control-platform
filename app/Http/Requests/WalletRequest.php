@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class WalletRequest extends FormRequest
 {
@@ -24,12 +25,20 @@ class WalletRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [];
+
+
         if ($this->status == User::USER_ACTIVE) {
             $rules = [
-                'wallet' => 'required|string|max:255',
+                'wallet' => ['required','string','max:255', Rule::unique('wallets','wallet')->ignore($this->wallet)],
                 'total_balance' => 'required|numeric',
                 'available_balance' => 'required|numeric'
+            ];
+        }
+        else{
+            $rules = [
+                'wallet' => ['string', 'max:255', Rule::unique('wallets')->ignore($this->wallet,'wallet')],
+                'total_balance' => 'numeric',
+                'available_balance' => 'numeric'
             ];
         }
         return $rules;

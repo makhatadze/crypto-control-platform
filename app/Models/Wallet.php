@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Wallet extends Model
 {
     use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -19,4 +20,5 @@ class Wallet extends Model
         'total_balance',
         'available_balance'
     ];
+
 }

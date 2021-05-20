@@ -21,4 +21,9 @@ interface UserRepositoryInterface
      * @param Request $request
      */
     public function getData(Request $request);
+
+    public function saveWallet($data,$user);
+
+    public function updateWallet($data,$user);
+
 }

@@ -25,6 +25,7 @@ class RoleSeeder extends Seeder
             'name' => 'test test',
             'email' => 'insite@insite.ge',
             'password' => '$2y$10$5idwZmBGdPPTlgVqjc0a6OaSIzhxadY.PZ3ZHqrFHMddIphihKhD.',
+            'phone'=>'5555'
         ]);
 
         DB::table('roles')->insert([

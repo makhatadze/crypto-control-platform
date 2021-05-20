@@ -46,7 +46,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone'
+        'phone',
+        'status'
     ];
 
     /**
@@ -91,5 +92,9 @@ class User extends Authenticatable
                 'scopeMethod' => 'status'
             ]
         ];
+    }
+
+    public function wallet(){
+        return $this->hasOne(Wallet::class, 'user_id','id');
     }
 }

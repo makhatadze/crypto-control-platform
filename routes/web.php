@@ -33,4 +33,6 @@ Route::middleware('auth')
             ->name('index', 'userIndex')
             ->name('edit','userEditView');
         Route::match(['get','post'],'/user/set-wallet/{user}',[UsersController::class,'setWallet'])->name('setWallet');
+        Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
+        Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
     });

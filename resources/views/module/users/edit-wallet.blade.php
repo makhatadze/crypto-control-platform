@@ -7,9 +7,9 @@
     <div class="row">
         <div class="col-md-6">
             <div class="white-box">
-                <h2 class="header-title">Set Wallet - {{$user->name}}</h2>
+                <h2 class="header-title">Update Wallet - {{$user->name}}</h2>
 
-                <form class="form-horizontal" action="{{route('setWallet', $user->id)}}" method="POST">
+                <form class="form-horizontal" action="{{route('updateWallet', $user->id)}}" method="POST">
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">Status</label>
@@ -23,7 +23,7 @@
                     <div class="form-group @error('wallet') has-error @enderror">
                         <label class="col-md-2 control-label">Wallet</label>
                         <div class="col-md-10">
-                            <input class="form-control" name="wallet" placeholder="Enter wallet address" type="text" value="{{old('wallet')}}">
+                            <input class="form-control" name="wallet" placeholder="Enter wallet address" type="text" value="{{$user->wallet->wallet}}">
                         </div>
                         <div class="col-md-2 control-label"></div>
                         @error('wallet')
@@ -39,7 +39,7 @@
                         <label class="col-md-2 control-label" for="example-email">Total Balance</label>
                         <div class="col-md-10">
                             <input name="total_balance" class="form-control" placeholder="Enter Total Balance"
-                                   type="number" value="{{old('total_balance')}}">
+                                   type="number" value="{{$user->wallet->total_balance}}">
                         </div>
                         <div class="col-md-2 control-label"></div>
                         @error('total_balance')
@@ -55,7 +55,7 @@
                         <label class="col-md-2 control-label" for="example-email">Available Balance</label>
                         <div class="col-md-10">
                             <input name="available_balance" class="form-control" placeholder="Enter Available Balance"
-                                   type="number" value="{{old('available_balance')}}">
+                                   type="number" value="{{$user->wallet->available_balance}}">
                         </div>
                         @error('available_balance')
                         <div class="col-md-10">
@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <div class="col-md-2"></div>
                         <div class="col-md-10 text-center">
-                            <input type="submit" value="Set Wallet" class="btn btn-primary">
+                            <input type="submit" value="Update Wallet" class="btn btn-primary">
                         </div>
                     </div>
                 </form>

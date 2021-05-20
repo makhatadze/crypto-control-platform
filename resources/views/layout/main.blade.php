@@ -2,7 +2,8 @@
 
 @section('body')
     <body>
-        @yield('content')
+
+    @yield('content')
 
         <!-- BEGIN: JS Assets-->
 

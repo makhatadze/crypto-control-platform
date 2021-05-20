@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\WalletRequest;
 use App\Models\User;
+use App\Models\Wallet;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class UsersController extends Controller
      */
     private $userRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository) {
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
         $this->userRepository = $userRepository;
     }
 
@@ -45,12 +47,25 @@ class UsersController extends Controller
         ]);
     }
 
-    public function setWallet(User $user, WalletRequest $request) {
+    public function setWallet(User $user, WalletRequest $request)
+    {
         if ($request->post()) {
-            dd('request movida');
+            return $this->userRepository->saveWallet($request->post(), $user);
         }
         return view('module.users.set-wallet', [
             'user' => $this->userRepository->find($user->id)
         ]);
+    }
+
+    public function editWallet(User $user, WalletRequest $request)
+    {
+        return view('module.users.edit-wallet', [
+            'user' => $this->userRepository->find($user->id)
+        ]);
+    }
+
+    public function updateWallet(User $user, WalletRequest $request)
+    {
+        return $this->userRepository->updateWallet($request->post(), $user);
     }
 }
