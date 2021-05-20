@@ -3,6 +3,7 @@
 use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,5 @@ Route::middleware('auth')
 
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
+        Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
     });

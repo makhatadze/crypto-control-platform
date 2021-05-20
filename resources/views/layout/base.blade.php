@@ -9,6 +9,7 @@
     <meta name="keywords" content="admin crypto">
     <meta name="author" content="MAKHATADZE">
     @yield('head')
+
 </head>
 <body>
 @yield('body')

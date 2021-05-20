@@ -30,7 +30,7 @@
                 <li><a href="{{route('myWalletIndex')}}"><i class="icon-wallet"></i> <span>My Wallet</span></a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href=""><i class="icon-check"></i> <span>Verification</span></a></li>
+                <li><a href="{{route('verifyIndex')}}"><i class="icon-check"></i> <span>Verification</span></a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li><a href=""><i class="icon-login"></i> <span>Deposit</span></a></li>

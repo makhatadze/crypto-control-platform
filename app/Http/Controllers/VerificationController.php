@@ -1,9 +1,9 @@
 <?php
 /**
- *  app/Http/Controllers/MyWalletController.php
+ *  app/Http/Controllers/VerificationController.php
  *
  * Date-Time: 20.05.21
- * Time: 13:27
+ * Time: 14:03
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
 namespace App\Http\Controllers;
@@ -11,20 +11,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * Class MyWalletController
+ * Class VerificationController
  * @package App\Http\Controllers
  */
-class MyWalletController extends Controller
+class VerificationController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        return view('module.wallet.index', [
+        return view('module.verify.index', [
             'user' => auth()->user()
         ]);
-    }
-}
+    }}
