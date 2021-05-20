@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,9 @@ Route::middleware('auth')
         Route::get('', function () {
            if (auth()->user()->isAdmin()) {
                return redirect(\route('userIndex'));
+           } else {
+               return redirect(\route('myWalletIndex'));
            }
-
-
         });
 
         Route::middleware('can:isAdmin')
@@ -43,4 +44,6 @@ Route::middleware('auth')
                 Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
             });
 
+
+        Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
     });
