@@ -10,6 +10,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * Class Verify
@@ -25,6 +26,10 @@ use Illuminate\Database\Eloquent\Model;
 class Verify extends Model
 {
     use HasFactory;
+    public const VERIFY_FAILED = 0;
+    public const VERIFY_SUCCESS = 1;
+    public const VERIFY_PENDING = 2;
+
     public const VERIFY_PASSPORT = 1;
     public const VERIFY_DRIVING = 2;
     public const VERIFY_NATIONAL = 3;
@@ -41,4 +46,61 @@ class Verify extends Model
         'address',
         'status'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function filePassport(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_PASSPORT);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileDrivingBack(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DRIVING_BACK);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileDrivingFront(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DRIVING_FRONT);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileNationalBack(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_NATIONAL_BACK);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileNationalFront(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_NATIONAL_FRONT);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileWithSelfie(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_WITH_SELFIE);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function fileDocument(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DOCUMENT);
+    }
+
 }
