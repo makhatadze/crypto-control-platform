@@ -13,13 +13,14 @@ use Illuminate\Http\Request;
 class MyWalletController extends Controller
 {
 
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
         return view('module.wallet.index', [
-
+            'user' => auth()->user()
         ]);
     }
 }

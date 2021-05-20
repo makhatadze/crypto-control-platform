@@ -11,6 +11,7 @@ namespace App\Models;
 use App\Traits\HasRolesAndPermissions;
 use App\Traits\ScopeFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -92,5 +93,14 @@ class User extends Authenticatable
                 'scopeMethod' => 'status'
             ]
         ];
+    }
+
+    /**
+     *  Get wallet
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class, 'user_id');
     }
 }
