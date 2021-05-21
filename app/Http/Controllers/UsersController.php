@@ -15,6 +15,10 @@ use App\Models\Wallet;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
+/**
+ * Class UsersController
+ * @package App\Http\Controllers
+ */
 class UsersController extends Controller
 {
 

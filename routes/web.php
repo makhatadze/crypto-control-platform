@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\DepositController;
 use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,11 +43,10 @@ Route::middleware('auth')
                     ->name('index', 'userIndex')
                     ->name('edit', 'userEditView');
                 Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
-                Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
-                Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
             });
 
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
         Route::get('/deposit',[DepositController::class,'index'])->name('depositIndex');
+        Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
     });

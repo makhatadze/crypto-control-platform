@@ -10,6 +10,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Class MyWalletController
+ * @package App\Http\Controllers
+ */
 class MyWalletController extends Controller
 {
 

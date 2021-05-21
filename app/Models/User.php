@@ -24,6 +24,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $username
  * @property string|null $email
  * @property integer $status
+ * @property integer $verify
  * @property string $phone
  * @property string|null $email_verified_at
  * @property string $password
@@ -39,6 +40,10 @@ class User extends Authenticatable
     public const USER_BLOCK = 2;
     public const USER_PENDING = 0;
 
+    public const USER_NOT_VERIFY = 0;
+    public const USER_VERIFY = 1;
+    public const USER_VERIFY_PENDING = 2;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -49,7 +54,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-        'status'
+        'verify'
     ];
 
     /**
@@ -100,7 +105,8 @@ class User extends Authenticatable
      *  Get wallet
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function wallet(){
-        return $this->hasOne(Wallet::class, 'user_id','id');
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class, 'user_id');
     }
 }
