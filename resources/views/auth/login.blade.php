@@ -57,9 +57,6 @@
                             </div>
                         </form>
 
-                        <div class="copy-text">
-                            <p class="m-0">2021 &copy; Insite International</p>
-                        </div>
 
                     </div>
                 </div>
