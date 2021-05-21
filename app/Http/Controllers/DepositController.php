@@ -38,7 +38,7 @@ class DepositController extends Controller
                 'amount' => $request->amount
             ];
 
-            Mail::to(env('DB_ADMIN_USERNAME'))
+            Mail::to(env('SUPPORT_EMAIL'))
                 ->queue(new DepositMail($data));
 
             return back()->with('success', 'Deposit successfully created');
