@@ -46,10 +46,10 @@
                                 Wallet - {{$user->wallet->wallet}}
                             </h4>
                             <h4>
-                                Total Balance - {{number_format($user->wallet->total_balance)}}$
+                                Total Balance - {{$user->wallet->total_balance !== null ? number_format($user->wallet->total_balance) : 0}}$
                             </h4>
                             <h4>
-                                Available Balance - {{number_format($user->wallet->available_balance)}}$
+                                Available Balance - {{$user->wallet->available_balance !== null ? number_format($user->wallet->available_balance) : 0}}$
                             </h4>
                         @endif
                     </div>
