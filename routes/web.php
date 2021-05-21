@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
@@ -46,6 +47,7 @@ Route::middleware('auth')
                 Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
                 Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
             });
+
 
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
