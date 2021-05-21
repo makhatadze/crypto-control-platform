@@ -37,7 +37,7 @@
             </ul>
             @if(auth()->user()->verify === 1)
                 <ul class="nav nav-pills nav-stacked custom-nav">
-                    <li><a href=""><i class="icon-logout"></i> <span>Withdraw</span></a></li>
+                    <li><a href="{{route('withdrawalIndex')}}"><i class="icon-logout"></i> <span>Withdraw</span></a></li>
                 </ul>
             @endif
             @enduser

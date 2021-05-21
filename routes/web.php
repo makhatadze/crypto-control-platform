@@ -5,6 +5,7 @@ use App\Http\Controllers\MyWalletController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,5 +54,6 @@ Route::middleware('auth')
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
         Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
+        Route::match(['get','post'],'/withdrawal',[WithdrawalController::class,'index'])->name('withdrawalIndex');
         Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
     });
