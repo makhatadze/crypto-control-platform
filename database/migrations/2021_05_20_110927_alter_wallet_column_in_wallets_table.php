@@ -14,7 +14,7 @@ class AlterWalletColumnInWalletsTable extends Migration
     public function up()
     {
         Schema::table('wallets', function (Blueprint $table) {
-            $table->string('wallet')->unique()->nullable()->change();
+            $table->string('wallet')->nullable()->change();
         });
     }
 
