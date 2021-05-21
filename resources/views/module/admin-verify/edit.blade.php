@@ -189,16 +189,12 @@
                 <div class="col-md-4">
                     <div class="panel panel-color  panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Document
-                                Image</h3>
+                            <h3 class="panel-title">Document</h3>
                         </div>
                         <div class="panel-body">
                             <p>
-                                <a href="/storage/file/{{$verification->fileDocument->fileable_id}}/{{$verification->fileDocument->name}}"
-                                   target="_blank">
-                                    <img
-                                        src="/storage/file/{{$verification->fileDocument->fileable_id}}/{{$verification->fileDocument->name}}"/>
-                                </a>
+                                <a href="{{url('storage/file/'.$verification->fileDocument->fileable_id. '/'.$verification->fileDocument->name)}}"
+                                   target="_blank"> Click here and show</a>
                             </p>
                         </div>
                     </div>
