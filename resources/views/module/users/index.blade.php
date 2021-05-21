@@ -18,8 +18,8 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Status</th>
-                            <th>Actions</th>
                             <th>Verify</th>
+                            <th>Actions</th>
                         </tr>
                         <tr>
                             <form method="GET" action="{{route('userIndex')}}">
@@ -91,9 +91,6 @@
                                         <a href="{{route('editWallet',$user->id)}}">
                                             Update Wallet
                                         </a>
-                                        <a class="ml-2" href="{{route('userEditView',$user->id)}}">
-                                            <i class="icon-pencil"></i>
-                                        </a>
                                         <a class="ml-2" href="{{route('userView',$user->id)}}">
                                             <i class="icon-eye"></i>
                                         </a>
@@ -102,9 +99,6 @@
                                     <td>
                                         <a href="{{route('setWallet',$user->id)}}">
                                             Set Wallet
-                                        </a>
-                                        <a class="ml-2" href="{{route('userEditView',$user->id)}}">
-                                            <i class="icon-pencil"></i>
                                         </a>
                                         <a class="ml-2" href="{{route('userView',$user->id)}}">
                                             <i class="icon-eye"></i>

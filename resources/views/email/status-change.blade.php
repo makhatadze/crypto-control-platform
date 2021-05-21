@@ -96,9 +96,9 @@
     <section id="maincContent">
         <section id="content">
             @if($data['status']==\App\Models\User::USER_ACTIVE)
-                Your status is activated
+                Your status is changed: activated
             @elseif($data['status']==\App\Models\User::USER_BLOCK)
-                Your status is blocked
+                Your status is changed: blocked
             @endif
         </section>
     </section>

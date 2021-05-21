@@ -72,7 +72,7 @@
 <section id="wrapper">
     <section id="maincContent">
         <section id="content">
-            Your request was submit! Await response.
+            Your request was submitted! Please, wait for the update.
         </section>
     </section>
 </section>
