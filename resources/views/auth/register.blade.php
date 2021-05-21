@@ -16,7 +16,7 @@
                     <div class="login-inner">
 
                         <div class="logo">
-                            <img src="/assets/images/logo-dark.png" alt="logo"/>
+                            <img src="/favicon.png" alt="logo"/>
                         </div>
 
                         <h2 class="header-title text-center">Sign Up</h2>

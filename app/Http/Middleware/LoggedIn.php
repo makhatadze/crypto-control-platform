@@ -15,7 +15,7 @@ class LoggedIn
     public function handle($request, Closure $next)
     {
         if (!is_null(request()->user())) {
-            return redirect('admin/');
+            return redirect('/');
         } else {
             return $next($request);
         }
