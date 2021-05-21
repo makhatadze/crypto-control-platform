@@ -103,4 +103,11 @@ class Verify extends Model
         return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DOCUMENT);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function files(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable');
+    }
 }

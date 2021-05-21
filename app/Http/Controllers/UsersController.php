@@ -11,7 +11,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\WalletRequest;
 use App\Models\User;
-use App\Models\Wallet;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -40,6 +39,20 @@ class UsersController extends Controller
     {
         return view('module.users.index', [
             'users' => $this->userRepository->getData($request)
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \App\Models\User $user
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show(User $user)
+    {
+        return view('module.users.show', [
+            'user' => $user
         ]);
     }
 

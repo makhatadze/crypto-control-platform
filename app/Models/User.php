@@ -97,6 +97,10 @@ class User extends Authenticatable
             'status' => [
                 'hasParam' => true,
                 'scopeMethod' => 'status'
+            ],
+            'verify' => [
+                'hasParam' => true,
+                'scopeMethod' => 'verify'
             ]
         ];
     }
@@ -108,5 +112,14 @@ class User extends Authenticatable
     public function wallet(): HasOne
     {
         return $this->hasOne(Wallet::class, 'user_id');
+    }
+
+    /**
+     *  Get Verify Success
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function verifySuccess(): HasOne
+    {
+        return $this->hasOne(Verify::class, 'user_id')->where('status',1);
     }
 }

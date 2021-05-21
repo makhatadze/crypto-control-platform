@@ -116,4 +116,15 @@ trait ScopeFilter
     {
         return $query->where('status',$status);
     }
+
+    /**
+     * @param $query
+     * @param $verify
+     *
+     * @return mixed
+     */
+    public function scopeVerify($query, $verify)
+    {
+        return $query->where('verify',$verify);
+    }
 }

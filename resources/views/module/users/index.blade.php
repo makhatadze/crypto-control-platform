@@ -19,6 +19,7 @@
                             <th>Email</th>
                             <th>Status</th>
                             <th>Actions</th>
+                            <th>Verify</th>
                         </tr>
                         <tr>
                             <form method="GET" action="{{route('userIndex')}}">
@@ -47,6 +48,19 @@
                                         </option>
                                     </select>
                                 </th>
+                                <th>
+                                    <select onchange="this.form.submit()" name="verify" class="form-control input">
+                                        <option {{Request::get('verify') === '' ? 'selected' : ''}} value="">All
+                                        </option>
+                                        <option {{Request::get('verify') === '1' ? 'selected' : ''}} value="1">Verify
+                                        </option>
+                                        <option {{Request::get('verify') === '0' ? 'selected' : ''}} value="0">Not Verify
+                                        </option>
+                                        <option {{Request::get('verify') === '2' ? 'selected' : ''}} value="2">Pending
+                                        </option>
+                                    </select>
+                                </th>
+
                                 <th></th>
                             </form>
                         </tr>
@@ -65,6 +79,13 @@
                                 @else
                                     <td>Active</td>
                                 @endif
+                                @if($user->verify === 0)
+                                    <td>Not Verify</td>
+                                @elseif($user->verify === 2)
+                                    <td>Pending</td>
+                                @else
+                                    <td>Verify</td>
+                                @endif
                                 @if($user->status===1||$user->status==2)
                                     <td>
                                         <a href="{{route('editWallet',$user->id)}}">
@@ -72,6 +93,9 @@
                                         </a>
                                         <a class="ml-2" href="{{route('userEditView',$user->id)}}">
                                             <i class="icon-pencil"></i>
+                                        </a>
+                                        <a class="ml-2" href="{{route('userView',$user->id)}}">
+                                            <i class="icon-eye"></i>
                                         </a>
                                     </td>
                                 @else
@@ -81,6 +105,9 @@
                                         </a>
                                         <a class="ml-2" href="{{route('userEditView',$user->id)}}">
                                             <i class="icon-pencil"></i>
+                                        </a>
+                                        <a class="ml-2" href="{{route('userView',$user->id)}}">
+                                            <i class="icon-eye"></i>
                                         </a>
                                     </td>
                                 @endif
