@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}"/>
     <link rel="stylesheet" href="{{ asset('../assets/css/responsive.css') }}"/>
 
-    <title>Register - Crypto Admin</title>
+    <title>Register - Cryptcon</title>
 @endsection
 
 @section('content')

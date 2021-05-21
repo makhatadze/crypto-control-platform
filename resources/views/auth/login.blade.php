@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}"/>
     <link rel="stylesheet" href="{{ asset('../assets/css/responsive.css') }}"/>
 
-    <title>Login - Crypto Admin</title>
+    <title>Login - Cryptcon Admin</title>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
                     <div class="login-inner">
 
                         <div class="logo">
-                            <img src="/assets/images/logo-dark.png" alt="logo"/>
+                            <img src="/favicon.png" alt="logo"/>
                         </div>
 
                         <h2 class="header-title text-center">Login</h2>
