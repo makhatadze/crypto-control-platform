@@ -39,7 +39,7 @@ class WithdrawalController extends Controller
                 'amount' => $request->amount
             ];
 
-            Mail::to('vitomaxatadze@gmail.com')
+            Mail::to(env('DB_ADMIN_USERNAME'))
                 ->queue(new WithdrawalMail($data));
 
             return back()->with('success', 'Withdrawal successfully created');
