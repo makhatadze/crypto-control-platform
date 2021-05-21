@@ -6,21 +6,29 @@
  * Time: 13:27
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Http\Controllers;
 
+use App\Repositories\DepositRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
 class DepositController extends Controller
 {
-
-
     /**
-     * Display a listing of the resource.
+     * @var DepositRepositoryInterface
      */
+    private $depositRepository;
+
+    public function __construct(DepositRepositoryInterface $depositRepository)
+    {
+        $this->depositRepository = $depositRepository;
+    }
+
     public function index(Request $request)
     {
         return view('module.deposit.index', [
-            'user' => auth()->user()
+            'user' => $this->depositRepository->index($request)
         ]);
     }
 }

@@ -6,10 +6,13 @@
  * Time: 10:20
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Providers;
 
+use App\Repositories\DepositRepositoryInterface;
 use App\Repositories\Eloquent\Base\BaseRepository;
 use App\Repositories\Eloquent\Base\EloquentRepositoryInterface;
+use App\Repositories\Eloquent\DepositRepository;
 use App\Repositories\Eloquent\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -37,7 +40,8 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(EloquentRepositoryInterface::class,BaseRepository::class);
-        $this->app->bind(UserRepositoryInterface::class,UserRepository::class);
+        $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(DepositRepositoryInterface::class, DepositRepository::class);
     }
 }
