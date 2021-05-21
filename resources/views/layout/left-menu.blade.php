@@ -45,7 +45,7 @@
                 <li><a href="{{route('userIndex')}}"><i class="icon-people"></i> <span>Users</span></a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="{{route('userIndex')}}"><i class="icon-check"></i> <span>Verification</span></a></li>
+                <li><a href="{{route('adminVerifyIndex')}}"><i class="icon-check"></i> <span>Verification</span></a></li>
             </ul>
             <!--End sidebar nav-->
             @endrole
