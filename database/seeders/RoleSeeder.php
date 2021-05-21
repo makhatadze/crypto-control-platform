@@ -24,7 +24,7 @@ class RoleSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'test test',
             'email' => 'admin@cryptcon.so',
-            'password' => '$2y$10$8WDMgyFS48TE/gdOXdFYWer1Jv2XOosCxCSaGdblp.H4dVnl7uI7a',
+            'password' => '$2y$10$Wg7PCZKBIpPk4VwLZaXUrOH/6y0hMX4GKoggJONKFtDYHfI1IiT6O',
             'phone'=>'5555'
         ]);
 
