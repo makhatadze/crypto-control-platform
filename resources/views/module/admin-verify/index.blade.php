@@ -36,8 +36,18 @@
                                            class="form-control" maxlength="25" name="email">
                                 </th>
                                 <th>
-                                    <input onchange="this.form.submit()" value="{{Request::get('address')}}" type="text"
-                                           class="form-control" maxlength="25" name="address">
+                                    <select onchange="this.form.submit()" name="address" class="form-control input">
+                                        <option {{Request::get('address') === '' ? 'selected' : ''}} value="">All
+                                        </option>
+                                        <option {{Request::get('address') === '1' ? 'selected' : ''}} value="1"> Utility bill (gas, water, electric)
+                                        </option>
+                                        <option {{Request::get('address') === '2' ? 'selected' : ''}} value="2"> Telecom bill (internet or landline)
+                                        </option>
+                                        <option {{Request::get('address') === '3' ? 'selected' : ''}} value="3">Paper bank or credit card statement
+                                        </option>
+                                        <option {{Request::get('address') === '4' ? 'selected' : ''}} value="4"> Original electronic bank or credit card statement in PDF
+                                        </option>
+                                    </select>
                                 </th>
 
                                 <th>
@@ -63,7 +73,20 @@
                                 <td>{{$verification->id}}</td>
                                 <td>{{$verification->name}}</td>
                                 <td>{{$verification->email}}</td>
-                                <td>{{$verification->address}}</td>
+                                <td>
+                                    @switch($verification->address)
+                                        @case(1)
+                                        Utility bill (gas, water, electric)
+                                        @break
+                                        @case(2)
+                                        Telecom bill (internet or landline)
+                                        @break
+                                        @case(3)
+                                        Paper bank or credit card statement
+                                        @break
+                                        @case(4)
+                                        Original electronic bank or credit card statement in PDF
+                                    @endswitch</td>
                                 @if($verification->status === \App\Models\Verify::VERIFY_PENDING)
                                     <td><p style="color:deepskyblue">Pending</p></td>
                                 @elseif($verification->status === \App\Models\Verify::VERIFY_SUCCESS)

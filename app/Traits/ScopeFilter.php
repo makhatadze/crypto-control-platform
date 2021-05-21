@@ -24,7 +24,7 @@ trait ScopeFilter
      * @param  $request
      * @return Builder
      */
-    public function filter( $request): Builder
+    public function filter($request): Builder
     {
         $data = $this->query();
         $filterScopes = $this->getFilterScopes();
@@ -42,10 +42,10 @@ trait ScopeFilter
             $data->{$methodToExecute}($value);
         }
 
-        $sortParams = ['sort' => 'id','order' => 'desc'];
+        $sortParams = ['sort' => 'id', 'order' => 'desc'];
 
         if ($request->filled('sort') && $request->filled('order')) {
-            $sortParams = $request->only('sort','order');
+            $sortParams = $request->only('sort', 'order');
         }
 
         return $data->sorted($sortParams);
@@ -114,6 +114,17 @@ trait ScopeFilter
      */
     public function scopeStatus($query, $status)
     {
-        return $query->where('status',$status);
+        return $query->where('status', $status);
+    }
+
+    /**
+     * @param $query
+     * @param $address
+     *
+     * @return mixed
+     */
+    public function scopeAddress($query, $address)
+    {
+        return $query->where('address', $address);
     }
 }

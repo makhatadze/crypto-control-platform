@@ -49,9 +49,9 @@ class AdminVerificationController extends Controller
         ]);
     }
 
-    public function update(Verify $verify,Request $request){
-
-        return $this->verificationRepository->update($verify,$request);
+    public function update(Verify $verify, Request $request)
+    {
+        return $this->verificationRepository->update($verify, $request);
     }
 
 }

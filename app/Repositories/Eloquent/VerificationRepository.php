@@ -45,17 +45,19 @@ class VerificationRepository extends BaseRepository implements VerificationRepos
         $status = $verification->status;
 
         $verification = $verification->update([
-            'status' => $data['status']
+            'status' => $data['status'] ?: "0"
         ]);
 
         $text = 'Verification status was not changed';
+        $type = 'danger';
 
         if ($verification) {
             $model = $user->update([
-                'verify' => $data['status']
+                'verify' => $data['status'] ?: "0"
             ]);
             if ($model) {
                 $text = 'Verification status was successfully changed';
+                $type = 'success';
             }
 
             if ($data['status'] != $status) {
@@ -63,7 +65,7 @@ class VerificationRepository extends BaseRepository implements VerificationRepos
                     ->queue(new VerificationStatusMail($data->all()));
             }
         }
-        return redirect()->route('adminVerifyIndex')->with('success', $text);
+        return redirect()->route('adminVerifyIndex')->with($type, $text);
 
 
     }
