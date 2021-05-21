@@ -52,6 +52,6 @@ Route::middleware('auth')
 
 
         Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
-        Route::get('/deposit',[DepositController::class,'index'])->name('depositIndex');
+        Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
         Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
     });

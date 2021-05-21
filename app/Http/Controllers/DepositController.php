@@ -6,9 +6,14 @@
  * Time: 13:27
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DepositRequest;
+use App\Mail\DepositMail;
+use App\Models\Deposit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DepositController extends Controller
 {
@@ -17,8 +22,29 @@ class DepositController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(DepositRequest $request)
     {
+
+        if ($request->post()) {
+            $user = auth()->user();
+            $model = new Deposit();
+            $model->user_id = $user->id;
+            $model->amount = $request->amount;
+            $model->save();
+
+            $data = [
+                'full_name' => $user->name,
+                'email' => $user->email,
+                'amount' => $request->amount
+            ];
+
+            Mail::to('vitomaxatadze@gmail.com')
+                ->queue(new DepositMail($data));
+
+            return back()->with('success', 'Deposit successfully created');
+
+        }
+
         return view('module.deposit.index', [
             'user' => auth()->user()
         ]);
