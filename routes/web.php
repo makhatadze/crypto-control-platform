@@ -45,6 +45,11 @@ Route::middleware('auth')
                     ->name('index', 'userIndex')
                     ->name('show','userView')
                     ->name('edit', 'userEditView');
+
+                Route::resource('/verify', \App\Http\Controllers\AdminVerificationController::class)
+                    ->name('index', 'adminVerifyIndex')
+                    ->name('edit', 'verifyEditView')
+                    ->name('update', 'editVerify');
                 Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
                 Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
                 Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');

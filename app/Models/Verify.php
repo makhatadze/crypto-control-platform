@@ -6,8 +6,10 @@
  * Time: 15:18
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Models;
 
+use App\Traits\ScopeFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -25,7 +27,8 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  */
 class Verify extends Model
 {
-    use HasFactory;
+    use HasFactory, ScopeFilter;
+
     public const VERIFY_FAILED = 0;
     public const VERIFY_SUCCESS = 1;
     public const VERIFY_PENDING = 2;
@@ -48,11 +51,40 @@ class Verify extends Model
     ];
 
     /**
+     * @return array[]
+     */
+    public function getFilterScopes(): array
+    {
+        return [
+            'id' => [
+                'hasParam' => true,
+                'scopeMethod' => 'id'
+            ],
+            'name' => [
+                'hasParam' => true,
+                'scopeMethod' => 'name'
+            ],
+            'email' => [
+                'hasParam' => true,
+                'scopeMethod' => 'email'
+            ],
+            'address' => [
+                'hasParam' => true,
+                'scopeMethod' => 'address'
+            ],
+            'status' => [
+                'hasParam' => true,
+                'scopeMethod' => 'status'
+            ]
+        ];
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
     public function filePassport(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_PASSPORT);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_PASSPORT);
     }
 
     /**
@@ -60,7 +92,7 @@ class Verify extends Model
      */
     public function fileDrivingBack(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DRIVING_BACK);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_DRIVING_BACK);
     }
 
     /**
@@ -68,7 +100,7 @@ class Verify extends Model
      */
     public function fileDrivingFront(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DRIVING_FRONT);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_DRIVING_FRONT);
     }
 
     /**
@@ -76,7 +108,7 @@ class Verify extends Model
      */
     public function fileNationalBack(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_NATIONAL_BACK);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_NATIONAL_BACK);
     }
 
     /**
@@ -84,7 +116,7 @@ class Verify extends Model
      */
     public function fileNationalFront(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_NATIONAL_FRONT);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_NATIONAL_FRONT);
     }
 
     /**
@@ -92,7 +124,7 @@ class Verify extends Model
      */
     public function fileWithSelfie(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_WITH_SELFIE);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_WITH_SELFIE);
     }
 
     /**
@@ -100,7 +132,7 @@ class Verify extends Model
      */
     public function fileDocument(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('type',File::FILE_DOCUMENT);
+        return $this->morphOne(File::class, 'fileable')->where('type', File::FILE_DOCUMENT);
     }
 
     /**
