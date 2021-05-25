@@ -1466,7 +1466,7 @@ h5.left-nav-title {
 }
 
 
- 
+
 /*--------------------------------------------*/
 /*   label
 /*--------------------------------------------*/
@@ -1475,7 +1475,7 @@ h5.left-nav-title {
  .label-warning {
     background-color: #f0a015;
 }
- 
+
 .label {
     display: inline-block;
     padding: 5px 16px 6px;
@@ -1695,7 +1695,7 @@ table.dataTable thead th, table.dataTable thead td {
 }
 
 .icon-list-demo.material div{
-	font-size:13px !important;	
+	font-size:13px !important;
 	line-height: 30px;
 	margin-bottom: 20px;
 }
@@ -2368,7 +2368,7 @@ div.checker span {
     margin-left: 65px;
 }
 
-.chat-widget ul li.left .name 
+.chat-widget ul li.left .name
 , .chat-widget ul li.left .chat-info .message,
 .chat-widget ul li.left .chat-info .name,
 .chat-widget ul li.left .chat-info .datetime
@@ -2988,7 +2988,7 @@ vertical-tabs-main .vertical-tabs. .nav > li >  a {
     background: #F5F5F5;
 }
 
-	
+
 .vertical-tabs-main .nav-tabs > li.active > a,
 .vertical-tabs-main .nav-tabs > li > a:hover,
 .vertical-tabs-main .nav-tabs > li.active > a:focus,
@@ -3454,7 +3454,7 @@ vertical-tabs-main .vertical-tabs. .nav > li >  a {
 }
 
 @media all and (max-width: 767px) {
-	
+
   .sweet-alert {
     width: auto;
     margin-left: 0;
@@ -4175,7 +4175,7 @@ vertical-tabs-main .vertical-tabs. .nav > li >  a {
 }
 
 .login-inner {
-    background: #FFF;
+    background: #000;
     float: left;
     width: 100%;
     padding: 33px 40px;

@@ -10,12 +10,12 @@
             <li>
                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <img src="/assets/im
-                    ages/users/avatar-6.jpg" alt="" />
-                    {{auth()->user()->name}}
+                    ages/users/avatar-6.jpg" alt=""/>
+                    {{auth()->user()->name }} - {{auth()->user()->id }}
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                    <li> <a href="{{route('logout')}}"> <i class="fa fa-lock"></i> Logout </a> </li>
+                    <li><a href="{{route('logout')}}"> <i class="fa fa-lock"></i> Logout </a></li>
                 </ul>
             </li>
 

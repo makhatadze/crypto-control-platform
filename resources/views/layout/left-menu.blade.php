@@ -16,11 +16,11 @@
 
         <!--logo-->
         <div class="logo">
-            <a href="/"><img src="/favicon.png" alt=""></a>
+            <a href="/"><img src="/favicon.png" width="200" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="/"><img src="/favicon.png" alt=""></a>
+            <a href="/"><img src="/favicon.png" width="200" alt=""></a>
         </div>
         <!--logo-->
 
