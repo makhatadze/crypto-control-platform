@@ -29,13 +29,13 @@ class WalletRequest extends FormRequest
 
         if ($this->status == User::USER_ACTIVE) {
             $rules = [
-                'wallet' => ['required', 'string', 'max:255', Rule::unique('wallets', 'wallet')->ignore($this->wallet)],
+                'wallet' => ['required', 'string', 'max:255'],
                 'total_balance' => 'max:10|required|string',
                 'available_balance' => 'max:10|required|string'
             ];
         } else {
             $rules = [
-                'wallet' => ['string', 'max:255', Rule::unique('wallets', 'wallet')->ignore($this->wallet), 'nullable'],
+                'wallet' => ['string', 'max:255', 'nullable'],
                 'total_balance' => 'max:10|string|nullable',
                 'available_balance' => 'max:10|string|nullable'
             ];
