@@ -46,10 +46,10 @@
                                 Wallet - {{$user->wallet->wallet}}
                             </h4>
                             <h4>
-                                Total Balance - {{$user->wallet->total_balance !== null ? number_format($user->wallet->total_balance) : 0}}$
+                                Total Balance - {{$user->wallet->total_balance !== null ? number_format($user->wallet->total_balance) : 0}} - BTC
                             </h4>
                             <h4>
-                                Available Balance - {{$user->wallet->available_balance !== null ? number_format($user->wallet->available_balance) : 0}}$
+                                Available Balance - {{$user->wallet->available_balance !== null ? number_format($user->wallet->available_balance) : 0}} - BTC
                             </h4>
                         @endif
                     </div>
