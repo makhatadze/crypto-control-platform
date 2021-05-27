@@ -37,8 +37,7 @@ class DepositController extends Controller
                 'email' => $user->email,
                 'amount' => $request->amount
             ];
-            var_dump(env('SUPPORT_EMAIL'));
-            exit();
+
             Mail::to(env('SUPPORT_EMAIL'))
                 ->queue(new DepositMail($data));
 
