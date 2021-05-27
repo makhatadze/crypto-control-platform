@@ -45,7 +45,7 @@ class VerificationRepository extends BaseRepository implements VerificationRepos
         $status = $verification->status;
 
         $verification = $verification->update([
-            'status' => $data['status'] ?: "0"
+            'status' => $data['status'] ?: "0",
         ]);
 
         $text = 'Verification status was not changed';
@@ -53,7 +53,8 @@ class VerificationRepository extends BaseRepository implements VerificationRepos
 
         if ($verification) {
             $model = $user->update([
-                'verify' => $data['status'] ?: "0"
+                'verify' => $data['status'] ?: "0",
+                'liquidity' => $data['liquidity']
             ]);
             if ($model) {
                 $text = 'Verification status was successfully changed';

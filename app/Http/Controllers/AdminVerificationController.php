@@ -42,10 +42,12 @@ class AdminVerificationController extends Controller
         ]);
     }
 
-    public function edit(int $id)
+    public function edit(Verify $verify)
     {
+        $verification = $this->verificationRepository->find($verify->id);
         return view('module.admin-verify.edit', [
-            'verification' => $this->verificationRepository->find($id)
+            'verification' => $verification,
+            'user' => User::where('id', $verification->user_id)->first()
         ]);
     }
 

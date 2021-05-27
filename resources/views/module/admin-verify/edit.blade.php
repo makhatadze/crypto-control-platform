@@ -25,6 +25,10 @@
                             <option {{$verification->status === 1 ? 'selected' : ''}} value="1">Success</option>
                             <option {{$verification->status === 0 ? 'selected' : ''}} value="0">Failed</option>
                         </select>
+                        <div class="form-group m-t-5 @error('liquidity') has-error @enderror">
+                            <label class="">Liquidity check</label>
+                                <input class="form-control" name="liquidity" placeholder="Enter Liquidity" type="text" value="{{$user->liquidity}}">
+                        </div>
                         <br>
                         <input type="submit" value="Set Status" class="btn btn-primary">
                     </div>

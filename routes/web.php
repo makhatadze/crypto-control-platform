@@ -63,4 +63,5 @@ Route::middleware('auth')
         Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
         Route::match(['get','post'],'/withdrawal',[WithdrawalController::class,'index'])->name('withdrawalIndex');
         Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
+        Route::match(['get','post'],'change-verification/{user}',[VerificationController::class,'changeVerification'])->name('changeVerification');
     });

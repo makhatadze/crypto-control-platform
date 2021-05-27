@@ -24,6 +24,7 @@
                             <th>Email</th>
                             <th>Status</th>
                             <th>Verify</th>
+                            <th>Liquidity</th>
                             <th>Actions</th>
                         </tr>
                         <tr>
@@ -53,6 +54,7 @@
                                         </option>
                                     </select>
                                 </th>
+
                                 <th>
                                     <select onchange="this.form.submit()" name="verify" class="form-control input">
                                         <option {{Request::get('verify') === '' ? 'selected' : ''}} value="">All
@@ -66,7 +68,11 @@
                                         </option>
                                     </select>
                                 </th>
-
+                                <th>
+                                    <input onchange="this.form.submit()" value="{{Request::get('liquidity')}}"
+                                           type="text"
+                                           class="form-control" maxlength="25" name="liquidity">
+                                </th>
                                 <th></th>
                             </form>
                         </tr>
@@ -92,29 +98,27 @@
                                 @else
                                     <td>Verify</td>
                                 @endif
-                                @if($user->status===1||$user->status==2)
-                                    <td>
+                                <td>{{$user->liquidity ?? 'Null'}}</td>
+                                <td>
+                                    @if($user->status===1||$user->status==2)
                                         <a href="{{route('editWallet',$user->id)}}">
                                             Update Wallet
                                         </a>
-                                        <a class="ml-2" href="{{route('userView',$user->id)}}">
-                                            <i class="icon-eye"></i>
-                                        </a>
-                                    </td>
-                                @else
-                                    <td>
+                                    @else
                                         <a href="{{route('setWallet',$user->id)}}">
                                             Set Wallet
                                         </a>
-                                        <a class="ml-2" href="{{route('userView',$user->id)}}">
-                                            <i class="icon-eye"></i>
-                                        </a>
-                                    </td>
-                                @endif
+                                    @endif
+                                    <a class="ml-2" href="{{route('userView',$user->id)}}">
+                                        <i class="icon-eye"></i>
+                                    </a>
+                                    <a class="ml-2" href="{{route('changeVerification',$user->id)}}">
+                                        Verify
+                                    </a>
+
+                                </td>
                             </tr>
                         @endforeach
-
-
                         </tbody>
                     </table>
                 </div>

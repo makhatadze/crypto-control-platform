@@ -18,6 +18,7 @@
                                     Verification Pending
                                 @endif
                             </h2>
+                            <h2>Liquidity Check: {{$user->liquidity ?? 0}} %</h2>
                         </div>
                     </div>
 

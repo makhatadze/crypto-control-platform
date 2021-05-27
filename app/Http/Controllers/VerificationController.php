@@ -6,6 +6,7 @@
  * Time: 14:03
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VerifyRequest;
@@ -38,19 +39,19 @@ class VerificationController extends Controller
 
             switch ((int)$request->identify) {
                 case 1:
-                   if ($request->hasFile('file-passport')) {
-                       $file = $request->file('file-passport');
-                       $imagename = date('Ymhs') . $file->getClientOriginalName();
-                       $destination = base_path() . '/storage/app/public/file/' . $model->id;
-                       $file->move($destination, $imagename);
-                       $model->filePassport()->create([
-                           'name' => $imagename,
-                           'path' => '/storage/app/public/file/' . $model->id,
-                           'format' => $file->getClientOriginalExtension(),
-                           'type' => File::FILE_PASSPORT
-                       ]);
-                   }
-                   break;
+                    if ($request->hasFile('file-passport')) {
+                        $file = $request->file('file-passport');
+                        $imagename = date('Ymhs') . $file->getClientOriginalName();
+                        $destination = base_path() . '/storage/app/public/file/' . $model->id;
+                        $file->move($destination, $imagename);
+                        $model->filePassport()->create([
+                            'name' => $imagename,
+                            'path' => '/storage/app/public/file/' . $model->id,
+                            'format' => $file->getClientOriginalExtension(),
+                            'type' => File::FILE_PASSPORT
+                        ]);
+                    }
+                    break;
                 case 2:
                     if ($request->hasFile('file-driving-back')) {
                         $file = $request->file('file-driving-back');
@@ -134,9 +135,33 @@ class VerificationController extends Controller
             User::where('id', auth()->user()->id)
                 ->update(['verify' => 2]);
 
-            return redirect(route('verifyIndex'))->with('success','Verification send!');
+            return redirect(route('verifyIndex'))->with('success', 'Verification send!');
         }
         return view('module.verify.index', [
             'user' => auth()->user()
         ]);
-    }}
+    }
+
+
+    public function changeVerification(User $user, Request $request)
+    {
+        if ($request->post()) {
+            $user->update([
+                'verify' => $request->status,
+                'liquidity' => $request->liquidity
+            ]);
+
+            if ($user->verify === 2 && $user->verifySuccess !== null) {
+                $user->verifySuccess()->update([
+                    'status' => 0
+                ]);
+            }
+            return redirect(route('userIndex'))->with('success', 'Change verification');
+        }
+
+        return view('module.verify.edit', [
+            'user' => $user
+        ]);
+    }
+}
+
