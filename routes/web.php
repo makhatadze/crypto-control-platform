@@ -44,6 +44,8 @@ Route::middleware('auth')
                 Route::resource('/user', UsersController::class)
                     ->name('index', 'userIndex')
                     ->name('show','userView')
+                    ->name('create','userCreate')
+                    ->name('store','userStore')
                     ->name('edit', 'userEditView');
 
                 Route::resource('/verify', \App\Http\Controllers\AdminVerificationController::class)

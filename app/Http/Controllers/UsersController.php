@@ -9,6 +9,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Http\Requests\WalletRequest;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
@@ -62,6 +63,24 @@ class UsersController extends Controller
         return view('module.users.edit', [
             'user' => $this->userRepository->find($user->id)
         ]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        return view('module.users.create', [
+        ]);
+    }
+
+    public function store(UserRequest $request) {
+        if(!$this->userRepository->save($request)) {
+
+        }
+
+        return redirect(route('userIndex'))->with('success','User added.');
+
     }
 
     public function setWallet(User $user, WalletRequest $request)

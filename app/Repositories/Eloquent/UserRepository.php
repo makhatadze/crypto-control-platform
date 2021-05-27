@@ -9,6 +9,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Http\Requests\UserRequest;
 use App\Mail\SignUpMail;
 use App\Mail\StatusChangeMail;
 use App\Models\User;
@@ -16,6 +17,7 @@ use App\Models\Wallet;
 use App\Repositories\Eloquent\Base\BaseRepository;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -31,7 +33,35 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
      */
     public function __construct(User $model)
     {
+        $this->model = $model;
         parent::__construct($model);
+    }
+
+    /**
+     * @param \App\Http\Requests\UserRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function save(UserRequest $request)
+    {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+            'status' => 1
+        ]);
+
+        $model = new Wallet();
+
+        $model = $model->create([
+            'user_id' => $user->id,
+            'wallet' => $request['wallet'],
+            'total_balance' => $request['total_balance'] ?: "",
+            'available_balance' => $request['available_balance'] ?: "",
+        ]);
+
+        return true;
     }
 
     public function saveWallet($data, $user)
@@ -45,7 +75,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             'available_balance' => $data['available_balance'] ?: "",
         ]);
 
-        if ($model) {
+        if ($model && isset($data['status'])) {
             $user->update([
                 'status' => $data['status']
             ]);

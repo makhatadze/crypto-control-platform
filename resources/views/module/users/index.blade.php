@@ -5,10 +5,15 @@
 
 @section('wrapper')
     <!--Start row-->
+
     <div class="row">
         @include('layout.components.alert')
         <div class="col-md-12">
             <div class="white-box">
+
+                <div class="p-b-10">
+                    <a href="{{route('userCreate')}}" class="btn btn-success ">Add User</a>
+                </div>
                 <h2 class="header-title">Users</h2>
                 <div class="table-responsive">
                     <table id="example" class="display table">
@@ -54,7 +59,8 @@
                                         </option>
                                         <option {{Request::get('verify') === '1' ? 'selected' : ''}} value="1">Verify
                                         </option>
-                                        <option {{Request::get('verify') === '0' ? 'selected' : ''}} value="0">Not Verify
+                                        <option {{Request::get('verify') === '0' ? 'selected' : ''}} value="0">Not
+                                            Verify
                                         </option>
                                         <option {{Request::get('verify') === '2' ? 'selected' : ''}} value="2">Pending
                                         </option>
