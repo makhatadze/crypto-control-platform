@@ -22,7 +22,8 @@
                         <label class="">Verification Status</label>
                         <select name="status" class="form-control input">
                             <option {{$user->verify === 1 ? 'selected' : ''}} value="1">Success</option>
-                            <option {{$user->verify === 0 || $user->verify === 2 ? 'selected' : ''}} value="0">Failed</option>
+                            <option {{ $user->verify === 0 ? 'selected' : ''}} value="0">Failed</option>
+                            <option {{ $user->verify === 2 ? 'selected' : ''}} value="2">Pending</option>
                         </select>
                         <div class="form-group m-t-5 @error('liquidity') has-error @enderror">
                             <label class="">Liquidity check</label>
