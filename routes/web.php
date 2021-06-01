@@ -30,15 +30,6 @@ Route::middleware('loggedin')
 Route::middleware('auth')
     ->group(function () {
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-        Route::get('', function () {
-           if (auth()->user()->isAdmin()) {
-               return redirect(\route('userIndex'));
-           } else {
-               return redirect(\route('myWalletIndex'));
-           }
-        });
-
         Route::middleware('can:isAdmin')
             ->group(function () {
                 Route::resource('/user', UsersController::class)
@@ -59,9 +50,15 @@ Route::middleware('auth')
 
 
 
-        Route::get('/my-wallet',[MyWalletController::class,'index'])->name('myWalletIndex');
+
+
         Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
         Route::match(['get','post'],'/withdrawal',[WithdrawalController::class,'index'])->name('withdrawalIndex');
         Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
         Route::match(['get','post'],'change-verification/{user}',[VerificationController::class,'changeVerification'])->name('changeVerification');
     });
+
+Route::get('', function () {
+    return view('client.module.home.index');
+})->name('home');
+
