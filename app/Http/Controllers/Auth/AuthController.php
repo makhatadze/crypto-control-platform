@@ -49,6 +49,9 @@ class AuthController extends Controller
             return back()->with('danger','Email or Password is incorrect!');
         }
 
+        if (auth()->user()->isAdmin()) {
+            return redirect('admin');
+        }
         return redirect('/');
     }
 
