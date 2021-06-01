@@ -38,9 +38,10 @@
                         <li><i class="fa fa-envelope" aria-hidden="true"></i> <a class="links"
                                                                                  href="mailto:support@safecrypto.cc">support@safecrypto.cc</a>
                         </li>
+
                         <!-- <li><i class="fa fa-envelope" aria-hidden="true"></i> <a class="links" href="mailto:support@safecrypto.cc">contact@safecrypto.cc</a></li>
                         <li><i class="fa fa-envelope" aria-hidden="true"></i> <a class="links" href="mailto:support@safecrypto.cc">press@safecrypto.cc</a></li> -->
-                        <!-- <li><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Headley Ln, Dorking RH5 6DF, UK 7M7P+96 Leatherhead, United Kingdom</span></li> -->
+                         <li><i class="fa fa-map-marker" aria-hidden="true"></i> <span style="color: #282452">9309 Laurel Street Lynwood, CA 90262</span></li>
                     </ul>
                 </div>
                 <div class="col-md-6 wow fadeInRight"
