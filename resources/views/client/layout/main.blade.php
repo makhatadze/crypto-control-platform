@@ -31,6 +31,7 @@
     <script src="{{asset('client/js/jquery.listtopie.min.js')}}"></script>
     <script src="{{asset('client/js/animation.js')}}"></script>
     <script src="{{asset('client/js/custom.js')}}"></script>
+    <script src="{{asset('client/js/popup.js')}}"></script>
     <!-- END: JS Assets-->
     </body>
 @endsection
