@@ -84,5 +84,9 @@ Route::get('contact', function () {
     return view('client.module.contact.index');
 })->name('contact');
 
+Route::get('sign-up', function () {
+    return view('client.module.sign-up.index');
+})->name('signUp');
+
 
 
