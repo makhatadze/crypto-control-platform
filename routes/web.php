@@ -64,7 +64,7 @@ Route::prefix('admin')
 //                Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
 //                Route::match(['get','post'],'/withdrawal',[WithdrawalController::class,'index'])->name('withdrawalIndex');
 //                Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
-//                Route::match(['get','post'],'change-verification/{user}',[VerificationController::class,'changeVerification'])->name('changeVerification');
+                Route::match(['get','post'],'change-verification/{user}',[VerificationController::class,'changeVerification'])->name('changeVerification');
             });
     });
 
@@ -87,6 +87,10 @@ Route::get('contact', function () {
 Route::get('sign-up', function () {
     return view('client.module.sign-up.index');
 })->name('signUp');
+
+Route::get('sign-in', function () {
+    return view('client.module.sign-in.index');
+})->name('signIn');
 
 
 
