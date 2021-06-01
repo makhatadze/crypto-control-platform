@@ -80,4 +80,9 @@ Route::get('roadmap', function () {
     return view('client.module.roadmap.index');
 })->name('roadMap');
 
+Route::get('contact', function () {
+    return view('client.module.contact.index');
+})->name('contact');
+
+
 
