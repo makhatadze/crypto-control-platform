@@ -12,7 +12,7 @@
                 <form class="form-horizontal" action="{{route('updateWallet', $user->id)}}" method="POST">
 
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Status</label>
+                        <label class="col-md-2 control-label">Status User</label>
                         <div class="col-md-10">
                             <select name="status" class="form-control input">
                                 <option {{$user->status === 1 ? 'selected' : ''}} value="1">Active</option>
@@ -34,7 +34,16 @@
                         </div>
                         @enderror
                     </div>
-
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Status Wallet</label>
+                        <div class="col-md-10">
+                            <select name="status-wallet" class="form-control input">
+                                <option {{$user->wallet->status === 0 ? 'selected' : ''}} value="0">Frozen</option>
+                                <option {{$user->wallet->status === 1 ? 'selected' : ''}} value="1">Active</option>
+                                <option {{$user->wallet->status === 2 ? 'selected' : ''}} value="2">Block</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group @error('total_balance') has-error @enderror">
                         <label class="col-md-2 control-label" for="example-email">Total Balance</label>
                         <div class="col-md-10">

@@ -57,6 +57,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $model = $model->create([
             'user_id' => $user->id,
             'wallet' => $request['wallet'],
+            'status' => $request['status-wallet'],
             'total_balance' => $request['total_balance'] ?: "",
             'available_balance' => $request['available_balance'] ?: "",
         ]);
@@ -71,6 +72,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $model = $model->create([
             'user_id' => $user->id,
             'wallet' => $data['wallet'],
+            'status' => $data['status-wallet'],
             'total_balance' => $data['total_balance'] ?: "",
             'available_balance' => $data['available_balance'] ?: "",
         ]);
@@ -95,6 +97,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         $model = $model->update([
             'wallet' => $data['wallet'],
+            'status' => $data['status-wallet'],
             'total_balance' => $data['total_balance'] ?: "",
             'available_balance' => $data['available_balance'] ?: "",
         ]);

@@ -23,7 +23,8 @@
                     <div class="form-group @error('wallet') has-error @enderror">
                         <label class="col-md-2 control-label">Wallet</label>
                         <div class="col-md-10">
-                            <input class="form-control" name="wallet" placeholder="Enter wallet address" type="text" value="{{old('wallet')}}">
+                            <input class="form-control" name="wallet" placeholder="Enter wallet address" type="text"
+                                   value="{{old('wallet')}}">
                         </div>
                         <div class="col-md-2 control-label"></div>
                         @error('wallet')
@@ -33,6 +34,16 @@
                             </div>
                         </div>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Status Wallet</label>
+                        <div class="col-md-10">
+                            <select name="status-wallet" class="form-control input">
+                                <option selected value="0">Frozen</option>
+                                <option value="1">Active</option>
+                                <option value="2">Block</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group @error('total_balance') has-error @enderror">

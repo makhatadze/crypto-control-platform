@@ -64,11 +64,23 @@ if (count($errors)) {
                                     <div class="faq-tab">
                                         <h3>My Wallet: {{$user->wallet ? $user->wallet->wallet : ''}}</h3>
                                         <br>
+                                        <h3>Status:
+                                            @if($user->wallet)
+                                                @if($user->wallet->status === 0)
+                                                    Frozen
+                                                @elseif($user->wallet->status === 1)
+                                                    Active
+                                                @else
+                                                    Blocked
+                                                @endif
+                                            @endif
+                                        </h3>
                                         <br>
-                                        <h1>Total Balance: {{$user->wallet ? $user->wallet->total_balance : ''}}</h1>
+                                        <br>
+                                        <h1>Total Balance: {{$user->wallet ? $user->wallet->total_balance : ''}} USD</h1>
                                         <br>
                                         <h1>Available
-                                            Balance: {{$user->wallet ? $user->wallet->available_balance : ''}}</h1>
+                                            Balance: {{$user->wallet ? $user->wallet->available_balance : ''}} USD</h1>
                                     </div>
                                 </div>
                             </div>
