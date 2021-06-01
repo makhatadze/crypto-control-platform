@@ -3,7 +3,7 @@
         <div class="row flex-align">
             <div class="col-lg-4 col-md-3 col-8">
                 <div class="logo">
-                    <a href=""><img src="/client/images/logo.png" width="250px" class="transition" alt="SafeCrypto"></a>
+                    <a href="{{route('home')}}"><img src="/client/images/logo.png" width="250px" class="transition" alt="SafeCrypto"></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-9 col-4 text-right">
@@ -12,15 +12,22 @@
                 </div>
                 <div class="menu">
                     <ul class="d-inline-block">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Roadmap</a></li>
-                        <li><a href="">Contacts</a></li>
-                        <li><a href="">Sign Up</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('aboutUs')}}">About Us</a></li>
+                        <li><a href="{{route('roadMap')}}">Roadmap</a></li>
+                        <li><a href="{{route('contact')}}">Contacts</a></li>
+                        @if(!auth()->user())
+                        <li><a href="{{route('signUp')}}">Sign Up</a></li>
+                        @else
+                            <li><a href="{{route('myPortal')}}">My Portal</a></li>
+                            <li><a href="{{route('logout')}}">log out</a></li>
+                        @endif
                     </ul>
-                    <div class="signin d-inline-block">
-                        <a href="https://my.safecrypto.cc/login" class="btn">Sign in</a>
-                    </div>
+                    @if(!auth()->user())
+                        <div class="signin d-inline-block">
+                            <a href="{{route('signIn')}}" class="btn">Sign in</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

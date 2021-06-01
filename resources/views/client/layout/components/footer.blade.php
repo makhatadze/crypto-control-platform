@@ -4,17 +4,17 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo pb-25">
-                        <a href="/en"><img src="/client/images/logo.png" width="250px" alt="SafeCrypto"></a>
+                        <a href="{{route('home')}}"><img src="/client/images/logo.png" width="250px" alt="SafeCrypto"></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-link">
                         <ul>
-                            <li><a href="/en">Home</a></li>
-                            <li><a href="/en/about-us">About Us</a></li>
-                            <li><a href="/en/roadmap">Roadmap</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('aboutUs')}}">About Us</a></li>
+                            <li><a href="{{route('roadMap')}}">Roadmap</a></li>
                             <li><a href="/en/faq">FAQ</a></li>
-                            <li><a href="/en/contact">Contacts</a></li>
+                            <li><a href="{{route('contact')}}">Contacts</a></li>
                         </ul>
                     </div>
                 </div>

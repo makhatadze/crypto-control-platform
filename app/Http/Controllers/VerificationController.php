@@ -135,7 +135,7 @@ class VerificationController extends Controller
             User::where('id', auth()->user()->id)
                 ->update(['verify' => 2]);
 
-            return redirect(route('verifyIndex'))->with('success', 'Verification send!');
+            return redirect(route('myWallet'))->with('success', 'Verification send!');
         }
         return view('module.verify.index', [
             'user' => auth()->user()

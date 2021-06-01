@@ -25,6 +25,7 @@ Route::prefix('admin')
             ->group(function () {
                 Route::get('login', [AuthController::class, 'loginView'])->name('loginView');
                 Route::post('login', [AuthController::class, 'login'])->name('login');
+
 //        Route::get('register', [AuthController::class, 'registerView'])->name('registerView');
 //        Route::post('register', [AuthController::class, 'register'])->name('register');
             });
@@ -43,9 +44,9 @@ Route::prefix('admin')
                     ->group(function () {
                         Route::resource('/user', UsersController::class)
                             ->name('index', 'userIndex')
-                            ->name('show','userView')
-                            ->name('create','userCreate')
-                            ->name('store','userStore')
+                            ->name('show', 'userView')
+                            ->name('create', 'userCreate')
+                            ->name('store', 'userStore')
                             ->name('edit', 'userEditView');
 
                         Route::resource('/verify', \App\Http\Controllers\AdminVerificationController::class)
@@ -53,18 +54,12 @@ Route::prefix('admin')
                             ->name('edit', 'verifyEditView')
                             ->name('update', 'editVerify');
                         Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
-                        Route::match(['get','post'],'/user/{user}/edit-wallet',[UsersController::class,'editWallet'])->name('editWallet');
-                        Route::match(['get','post'],'/user/update-wallet/{user}',[UsersController::class,'updateWallet'])->name('updateWallet');
+                        Route::match(['get', 'post'], '/user/{user}/edit-wallet', [UsersController::class, 'editWallet'])->name('editWallet');
+                        Route::match(['get', 'post'], '/user/update-wallet/{user}', [UsersController::class, 'updateWallet'])->name('updateWallet');
                     });
 
 
-
-
-
-//                Route::match(['get','post'],'/deposit',[DepositController::class,'index'])->name('depositIndex');
-//                Route::match(['get','post'],'/withdrawal',[WithdrawalController::class,'index'])->name('withdrawalIndex');
-//                Route::match(['get','post'],'verification',[VerificationController::class,'index'])->name('verifyIndex');
-                Route::match(['get','post'],'change-verification/{user}',[VerificationController::class,'changeVerification'])->name('changeVerification');
+                Route::match(['get', 'post'], 'change-verification/{user}', [VerificationController::class, 'changeVerification'])->name('changeVerification');
             });
     });
 
@@ -91,6 +86,18 @@ Route::get('sign-up', function () {
 Route::get('sign-in', function () {
     return view('client.module.sign-in.index');
 })->name('signIn');
+
+
+Route::middleware('auth')->group(function () {
+    Route::match(['get', 'post'], 'verification', [VerificationController::class, 'index'])->name('verifyIndex');
+    Route::match(['get', 'post'], '/deposit', [DepositController::class, 'index'])->name('depositIndex');
+    Route::match(['get', 'post'], '/withdrawal', [WithdrawalController::class, 'index'])->name('withdrawalIndex');
+    Route::get('my-portal', function () {
+        return view('client.module.my-portal.index', [
+            'user' => auth()->user()
+        ]);
+    })->name('myPortal');
+});
 
 
 

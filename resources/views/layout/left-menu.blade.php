@@ -25,22 +25,22 @@
         <!--logo-->
 
         <div class="left-side-inner">
-            @user()
-            <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="{{route('myWalletIndex')}}"><i class="icon-wallet"></i> <span>My Wallet</span></a></li>
-            </ul>
-            <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="{{route('verifyIndex')}}"><i class="icon-check"></i> <span>Verification</span></a></li>
-            </ul>
-            <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="{{route('depositIndex')}}"><i class="icon-login"></i> <span>Deposit</span></a></li>
-            </ul>
-            @if(auth()->user()->verify === 1)
-                <ul class="nav nav-pills nav-stacked custom-nav">
-                    <li><a href="{{route('withdrawalIndex')}}"><i class="icon-logout"></i> <span>Withdraw</span></a></li>
-                </ul>
-            @endif
-            @enduser
+{{--            @user()--}}
+{{--            <ul class="nav nav-pills nav-stacked custom-nav">--}}
+{{--                <li><a href="{{route('myWalletIndex')}}"><i class="icon-wallet"></i> <span>My Wallet</span></a></li>--}}
+{{--            </ul>--}}
+{{--            <ul class="nav nav-pills nav-stacked custom-nav">--}}
+{{--                <li><a href="{{route('verifyIndex')}}"><i class="icon-check"></i> <span>Verification</span></a></li>--}}
+{{--            </ul>--}}
+{{--            <ul class="nav nav-pills nav-stacked custom-nav">--}}
+{{--                <li><a href="{{route('depositIndex')}}"><i class="icon-login"></i> <span>Deposit</span></a></li>--}}
+{{--            </ul>--}}
+{{--            @if(auth()->user()->verify === 1)--}}
+{{--                <ul class="nav nav-pills nav-stacked custom-nav">--}}
+{{--                    <li><a href="{{route('withdrawalIndex')}}"><i class="icon-logout"></i> <span>Withdraw</span></a></li>--}}
+{{--                </ul>--}}
+{{--            @endif--}}
+{{--            @enduser--}}
             @role('admin')
             <!--Sidebar nav-->
             <ul class="nav nav-pills nav-stacked custom-nav">

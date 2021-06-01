@@ -88,7 +88,9 @@ class AuthController extends Controller
 
     public function logout()
     {
+        $route = auth()->user()->isAdmin() ? 'loginView' : 'home';
         \Auth::logout();
-        return redirect(route('loginView'));
+
+        return redirect(route($route));
     }
 }
