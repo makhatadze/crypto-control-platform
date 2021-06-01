@@ -1,0 +1,207 @@
+/*_______________________________________________________
+// BASIC STYLE  //----------------------------
+_______________________________________________________*/
+/*---------- General Style ------------*/
+body, html {color: #fff; background: #121d33;}
+a, a:focus { color: #fff; }
+a:hover {color: #cc90e1; }
+a.active {color: #cc90e1; }
+
+.btn {color: #fff;  background: #5575dd; border: 1px solid #5575dd; border-color: #5575dd;}
+.btn:hover {color: #fff;}
+.btn:before{background: -webkit-radial-gradient(center, ellipse, rgba(39, 3, 106, 0.5) 0%, rgba(0, 0, 0, 0) 80%); background: radial-gradient(ellipse at center, rgba(39, 3, 106, 0.5) 0%, rgba(0, 0, 0, 0) 80%);}
+.owl-dot{background: #121d33 !important;}
+.owl-dot.active {background: #cc90e1 !important;}
+
+#preloader{background: url(../fonts/tokensale.svg) center no-repeat #121d33;}
+
+.form-control, .form-control:focus{background: #fff; color: #000; border: #121d33 1px solid ;}
+.form-control::-webkit-input-placeholder {color: #121d33;}
+.form-control::-moz-placeholder {color: #121d33;}
+.form-control:-ms-input-placeholder {color: #121d33;}
+.form-control:-moz-placeholder {color: #121d33;}
+.heading-title-2 span, .sub-heading {color: #cc90e1;}
+.sub-page-banner{background-color: #121d33;}
+.skyblue{background-color: #FFF; }
+.darkblue{background-color: #121d33;}
+.top-scroll {background: #cc90e1; color: #fff;}
+.top-scroll:hover {opacity: 0.6;}
+.top-scroll a{color: #fff;}
+.white {background: #fff; color: #000}
+.links {color: #121d33;}
+.links:hover {
+	color:  #121d33;
+}
+
+/*----- Menu -----*/
+.menu ul li a:before{background: #cc90e1;}
+header.fixed{background: rgba(18,29,51, .9);}
+.opener:before, .opener:after{background: #fff;}
+.menu-toggle span, .menu-toggle span:before, .menu-toggle span:after{background: #fff;}
+header.fixed .menu-toggle span, header.fixed .menu-toggle span:before, header.fixed .menu-toggle span:after{background: #fff;}
+.menu-toggle.active span{background: transparent;}
+
+/*----- Home Banner -----*/
+.home-banner{background-color: #490fb4;}
+
+/*----- Work Section -----*/
+ul.check-list li span{background: #fff; color: #470fac;}
+
+/*----- Feature Section -----*/
+.feature-title:hover {color: #cc90e1;}
+.feature-box:hover path.hover {fill: #cc90e1;}
+
+/*----- Timeline Section -----*/
+.h-border, .v-row{border-color: #cc90e1;}
+.small-round{border-color: #fff;}
+.v-row:before, .small-round span{background: #cc90e1;}
+
+/*----- Team Section -----*/
+.team-img{border-color: #7d3cf4;}
+.team-box:hover .team-img {border-color: #cc90e1;}
+
+/*----- Token Sale Section -----*/
+.token-graphic-detail ul li:before{background: #f85d77;}
+.token-graphic-detail ul li.color-code-2:before{background: #5ad6f8;}
+.token-graphic-detail ul li.color-code-3:before{background: #f8c04e;}
+.token-graphic-detail ul li.color-code-4:before{background: #ac56f7;}
+.token-graphic-detail ul li.color-code-5:before{background: #61f89f;}
+.donut {color: #3d1f94;}
+
+/*----- Blog Section -----*/
+.blog-date li:before{background: #fff;}
+.read-more{color: #cc90e1;}
+.read-more:hover{color: #fff;}
+.blog-img a:before{background: rgb(73 15 180 / 0.5);}
+
+/*----- FAQ Section -----*/
+.Frequently-tabs li a{color: #7a41e2;}
+.Frequently-tabs li a.active{color: #fff;}
+.Frequently-tabs li a:before{background: #cc90e1;}
+.qus-des {color: #b690fa;}
+
+/*----- Home Page Tow -----*/
+.banner-heading-tow span{color: #cc90e1;}
+.coin-counter{background: #5d19db;}
+.coin-head{color: #cc90e1;}
+.coins-counter-loop li:before, .coins-counter-loop li:after{background: #fff;}
+.coins-counter-loop li span{background: #480eb4; color: #fff;}
+.coins-progress{background: #490fb4;}
+.coins-progress span {background-color: #d94afd;}
+
+/*----- Feature tow -----*/
+.feature-box-2 .frontend, .feature-box-2 .backend  {background: #5d19db;}
+.feature-des {color: #dadada;}
+
+/*----- Roadmap Section -----*/
+.roadmap-part .v-row, .roadmap-part .h-border, .roadmap-des {border-color: #cc90e1;}
+.roadmap-part .small-round {background: #470fac;}
+
+/*----- team Tow Section -----*/
+.team-box-2{background: #fff;}
+.team-member-name a{color: #cc90e1;}
+.team-member-name a:hover{color: #490fb4;}
+.team-member-img {background-color: #490fb4;}
+.team-member-img:after{background-color: rgba(255, 255, 255, .4);}
+
+/*----- Blog Tow Section -----*/
+.blog-part-2 .read-more:hover {color: #fff;}
+
+/*----- FAQ tow Section -----*/
+.faq-part-2 .Frequently-tabs li a, .faq-part-2 .faq-tab, .accordion-faq-title {color: #fff; background: #5d19db;}
+.faq-part-2 .Frequently-tabs li a.active{background: #cc90e1;}
+.faq-part-2 .qus-des{color: #fff;}
+.accordion-faq-title.active, .accordion-faq-title:hover{ color: #fff;}
+.accordion-faq-content{background: #5d19db;}
+.accordion-faq-title:before, .accordion-faq-title:after{background: #fff;}
+
+/*----- About Page -----*/
+.sub-page-banner ul li:before{background: #fff;}
+.play-icon span{border-color: #470fac; background: #fff; color: #470fac;}
+.play-icon:hover span{border-color: #fff; background: #cc90e1; color: #fff;}
+.work-part button.close{color: #fff;}
+button.close{color: #fff;}
+
+/*----- blog List Page -----*/
+.blog-search input{border-color: #cc90e1; color: #fff;}
+.blog-search-btn{background: #cc90e1; color: #fff;}
+.blog-search input::-webkit-input-placeholder {color: #8d56f3;}
+.blog-search input::-moz-placeholder {color: #8d56f3;}
+.blog-search input:-ms-input-placeholder {color: #8d56f3;}
+.blog-search input:-moz-placeholder {color: #8d56f3;}
+.blog-search-btn:hover {background: #5d19db;}
+.blog-category{background: #5d19db;}
+.blog-category ul li:before{background: #cc90e1;}
+.trending-news-date{color: #cc90e1;}
+.blog-tags ul li a{background: #5d19db; color: #cc90e1;}
+.blog-tags ul li a:hover{background: #cc90e1; color: #fff;}
+.archives ul li{border-color: #5d19db;}
+.blog-list-content ul li:before{background: #fff;}
+.blog-list-pagination ul li a{background: #5d19db;}
+.blog-list-pagination ul li a:hover, .blog-list-pagination ul li a.active{color: #fff; background: #cc90e1;}
+
+/*----- blog Detail Page -----*/
+.blog-detail-content ul li:before{background: #fff;}
+.blog-detail-content blockquote{background: #5d19db; border-color: #cc90e1;}
+.blog-detail-tag ul li a, .blog-detail-social ul li a{background: #5d19db;}
+.blog-detail-tag ul li a:hover{background: #cc90e1; color: #fff;}
+.blog-detail-social ul li a:hover{background: #cc90e1; color: #fff;}
+.blog-detail-tag-social, .blog-comment-post-singel{border-color: #5d19db;}
+.comment-date{color: #bebebe;}
+.comment-reply{background: #cc90e1;}
+.comment-reply:hover{color: #fff; background: #5d19db;}
+
+/*----- Roadmap Page -----*/
+.roadmap-center-line{border-color: #cc90e1;}
+.roadmap-center-line:before, .roadmap-center-line:after{background: #fff;}
+.roadmap-animated{background: #121d33;}
+.roadmap-main-content:before{border-color: #cc90e1;}
+.roadmap-small-round{border-color: #fff; background: #490fb4;}
+.roadmap-small-round:before{background: #cc90e1;}
+.roadmap-main .roadmap-detail-box{background: #5d19db;}
+.roadmap-main .roadmap-des{color: #fff; padding: 0;}
+
+/*----- Token Sale Page -----*/
+.information-token-head{color: #cc90e1;}
+.token-sale-counter{background: #5d19db;}
+.token-sale-counter .coins-counter-loop li span{background: transparent;}
+.token-sale-counter .coins-counter-loop li .coin-day{color: #cc90e1;}
+.token-sale-counter .coins-progress span{background: rgb(218,75,253); background: -moz-linear-gradient(left,  rgba(218,75,253,1) 0%, rgba(73,15,180,1) 100%); background: -webkit-linear-gradient(left,  rgba(218,75,253,1) 0%,rgba(73,15,180,1) 100%); background: linear-gradient(to right,  rgba(218,75,253,1) 0%,rgba(73,15,180,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc90e1', endColorstr='#490fb4',GradientType=1 );}
+.token-slide-info:before{background: #490fb4;}
+.token-sale-counter .coins-progress{background: #fff;}
+.distribution-title { color: #cc90e1;}
+
+/*----- Contact Page -----*/
+.contact-detail li i{background: #5d19db;}
+
+/*----- Footer Section -----*/
+.footer-icon ul li a{background: #5d19db;}
+.footer-icon ul li a:hover{color: #fff;}
+.footer-icon ul li a:hover{background: #cc90e1;}
+.footer-link ul li a:hover{color: #cc90e1;}
+.subscribe .form-control{background: #FFF; color: #000;}
+.subscribe .submit{color: #fff; background: #cc90e1;}
+.subscribe .form-control::-webkit-input-placeholder {color: #121d33;}
+.subscribe .form-control::-moz-placeholder {color: #121d33;}
+.subscribe .form-control:-ms-input-placeholder {color: #121d33;}
+.subscribe .form-control:-moz-placeholder {color: #cc90e1;} 
+.subscribe .submit:hover {color: #cc90e1; background: #3b0799;}
+.copyright p a{color: #cc90e1;}
+.copyright p a:hover {color: #fff;}
+.copyright ul li:before{background: #5d19db;}
+.footer{border-color: #5d19db;}
+
+@media(min-width: 992px){
+	.menu ul li:hover a{color: #cc90e1;}
+	.mega-menu:hover:before{color: #cc90e1;}
+	.menu ul ul li a{border-color: #491aa0 !important; color: #fff !important;}
+	.menu ul ul li.mega-menu:before{color: #cc90e1;}
+	.menu ul ul li:hover > a{color: #cc90e1;}
+	.menu ul ul{background: rgb(58, 7, 152, .95);}
+	.menu ul ul li a:before{background: #491aa0;}
+}
+@media(max-width: 991px){
+	.menu{background: #3b0799;}
+	.signin .btn{background: transparent;}
+	header.fixed .menu-toggle.active span{background: transparent;}
+}
