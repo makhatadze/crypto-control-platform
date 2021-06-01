@@ -72,3 +72,7 @@ Route::get('', function () {
     return view('client.module.home.index');
 })->name('home');
 
+Route::get('about-us', function () {
+    return view('client.module.about-us.index');
+})->name('aboutUs');
+
