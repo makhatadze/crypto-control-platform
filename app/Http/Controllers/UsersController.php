@@ -11,10 +11,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\WalletRequest;
+use App\Mail\StatusChangeMail;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class UsersController
@@ -130,6 +132,27 @@ class UsersController extends Controller
     {
         return view('module.users.wallets', [
             'user' => $this->userRepository->find($user->id)
+        ]);
+    }
+
+    public function changeStatus(User $user, Request $request)
+    {
+
+        if ($request->post()) {
+            if ($user->status !== (int)$request->status) {
+                $user->update([
+                    'status' => $request->status
+                ]);
+
+                Mail::to($user->email)
+                    ->queue(new StatusChangeMail($request->only('status')));
+            }
+
+            return redirect(route('userStatus', $user->id))->with('success', 'Status Updated.');
+        }
+
+        return view('module.users.change-status', [
+            'user' => $user
         ]);
     }
 }

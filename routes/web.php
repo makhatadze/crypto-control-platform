@@ -49,6 +49,9 @@ Route::prefix('admin')
                             ->name('store', 'userStore')
                             ->name('edit', 'userEditView');
 
+                        Route::match(['get', 'post'], '/user/{user}/status', [UsersController::class, 'changeStatus'])->name('userStatus');
+
+
                         Route::resource('/verify', \App\Http\Controllers\AdminVerificationController::class)
                             ->name('index', 'adminVerifyIndex')
                             ->name('edit', 'verifyEditView')

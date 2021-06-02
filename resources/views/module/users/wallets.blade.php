@@ -19,11 +19,11 @@
     <div class="white-box">
         <div class="panel-wrap">
 
-                    <div class="col-md-12">
-                        <div class="p-b-10">
-                            <a href="{{route('walletCreate',$user->id)}}" class="btn btn-success ">Add Wallet</a>
-                        </div>
-                    </div>
+            <div class="col-md-12">
+                <div class="p-b-10">
+                    <a href="{{route('walletCreate',$user->id)}}" class="btn btn-success ">Add Wallet</a>
+                </div>
+            </div>
 
         </div>
         <div class="panel-wrap">

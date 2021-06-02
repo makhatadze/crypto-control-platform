@@ -100,6 +100,9 @@
                                 @endif
                                 <td>{{$user->liquidity ?? 'Null'}}</td>
                                 <td>
+                                    <a class="ml-2" href="{{route('userStatus',$user->id)}}">
+                                        Status
+                                    </a>
                                     <a class="ml-2" href="{{route('userWallets',$user->id)}}">
                                         Wallets
                                     </a>
