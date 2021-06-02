@@ -9,17 +9,8 @@
             <div class="white-box">
                 <h2 class="header-title">Set Wallet - {{$user->name}}</h2>
 
-                <form class="form-horizontal" action="{{route('setWallet', $user->id)}}" method="POST">
+                <form class="form-horizontal" action="{{route('walletCreate', $user->id)}}" method="POST">
 
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">Status</label>
-                        <div class="col-md-10">
-                            <select name="status" class="form-control input">
-                                <option {{$user->status === '1' ? 'selected' : ''}} value="1">Active</option>
-                                <option {{$user->status === '2' ? 'selected' : ''}} value="2">Block</option>
-                            </select>
-                        </div>
-                    </div>
                     <div class="form-group @error('wallet') has-error @enderror">
                         <label class="col-md-2 control-label">Wallet</label>
                         <div class="col-md-10">

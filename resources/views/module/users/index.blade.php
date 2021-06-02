@@ -100,15 +100,9 @@
                                 @endif
                                 <td>{{$user->liquidity ?? 'Null'}}</td>
                                 <td>
-                                    @if($user->status===1||$user->status==2)
-                                        <a href="{{route('editWallet',$user->id)}}">
-                                            Update Wallet
-                                        </a>
-                                    @else
-                                        <a href="{{route('setWallet',$user->id)}}">
-                                            Set Wallet
-                                        </a>
-                                    @endif
+                                    <a class="ml-2" href="{{route('userWallets',$user->id)}}">
+                                        Wallets
+                                    </a>
                                     <a class="ml-2" href="{{route('userView',$user->id)}}">
                                         <i class="icon-eye"></i>
                                     </a>

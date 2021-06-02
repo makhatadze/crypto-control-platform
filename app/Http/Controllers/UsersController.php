@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\WalletRequest;
 use App\Models\User;
+use App\Models\Wallet;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -74,34 +75,61 @@ class UsersController extends Controller
         ]);
     }
 
-    public function store(UserRequest $request) {
-        if(!$this->userRepository->save($request)) {
+    public function store(UserRequest $request)
+    {
+        if (!$this->userRepository->save($request)) {
 
         }
 
-        return redirect(route('userIndex'))->with('success','User added.');
+        return redirect(route('userIndex'))->with('success', 'User added.');
 
     }
 
-    public function setWallet(User $user, WalletRequest $request)
+    public function walletCreate(User $user, WalletRequest $request)
     {
         if ($request->post()) {
-            return $this->userRepository->saveWallet($request->post(), $user);
+            $model = new Wallet();
+
+            $model->create([
+                'user_id' => $user->id,
+                'wallet' => $request['wallet'],
+                'status' => $request['status-wallet'],
+                'total_balance' => $request['total_balance'],
+                'available_balance' => $request['available_balance'],
+            ]);
+
+            return redirect(route('userWallets', $user->id))->with('success', 'Wallet created.');
+
         }
         return view('module.users.set-wallet', [
-            'user' => $this->userRepository->find($user->id)
+            'user' => $user
         ]);
     }
 
-    public function editWallet(User $user)
+    public function editWallet(User $user, Wallet $wallet, WalletRequest $request)
     {
+        if ($request->post()) {
+            $wallet->update([
+                'wallet' => $request['wallet'],
+                'status' => $request['status-wallet'],
+                'total_balance' => $request['total_balance'],
+                'available_balance' => $request['available_balance'],
+            ]);
+
+            return redirect(route('userWallets', $user->id))->with('success', 'Wallet updated.');
+
+        }
         return view('module.users.edit-wallet', [
-            'user' => $this->userRepository->find($user->id)
+            'user' => $user,
+            'wallet' => $wallet
         ]);
     }
 
-    public function updateWallet(User $user, WalletRequest $request)
+
+    public function userWallets(User $user)
     {
-        return $this->userRepository->updateWallet($request->post(), $user);
+        return view('module.users.wallets', [
+            'user' => $this->userRepository->find($user->id)
+        ]);
     }
 }

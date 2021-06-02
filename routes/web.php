@@ -53,9 +53,11 @@ Route::prefix('admin')
                             ->name('index', 'adminVerifyIndex')
                             ->name('edit', 'verifyEditView')
                             ->name('update', 'editVerify');
-                        Route::match(['get', 'post'], '/user/{user}/set-wallet', [UsersController::class, 'setWallet'])->name('setWallet');
-                        Route::match(['get', 'post'], '/user/{user}/edit-wallet', [UsersController::class, 'editWallet'])->name('editWallet');
-                        Route::match(['get', 'post'], '/user/update-wallet/{user}', [UsersController::class, 'updateWallet'])->name('updateWallet');
+                        Route::match(['get', 'post'], '/user/{user}/add-wallet', [UsersController::class, 'walletCreate'])->name('walletCreate');
+                        Route::match(['get','post'], '/user/{user}/edit-wallet/{wallet}', [UsersController::class, 'editWallet'])->name('editWallet');
+
+                        Route::get( '/user/{user}/wallets', [UsersController::class, 'userWallets'])->name('userWallets');
+
                     });
 
 
