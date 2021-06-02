@@ -2,6 +2,7 @@
 
 @section('body')
     <body>
+    @include('client.layout.components.chat')
     <!-- Start preloader -->
     <!-- <div id="preloader" style="display background-color: #121d33;"></div> -->
     <!-- End preloader -->
