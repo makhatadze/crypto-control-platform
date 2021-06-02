@@ -61,6 +61,8 @@ Route::prefix('admin')
 
                         Route::get( '/user/{user}/wallets', [UsersController::class, 'userWallets'])->name('userWallets');
 
+                        Route::get( '/user/{user}/delete-wallet/{wallet}', [UsersController::class, 'deleteWallet'])->name('deleteWallet');
+
                     });
 
 

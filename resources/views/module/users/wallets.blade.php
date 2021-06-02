@@ -55,7 +55,8 @@
                             </div>
                             <a href="{{route('editWallet',[$user->id,$wallet->id])}}" class="btn btn-info m-b-5 m-l-5">Edit</a>
                             <a href="" class="btn btn-warning m-b-5 m-l-5">Change Currency</a>
-                            <a href="" class="btn btn-danger m-b-5 m-l-5">Delete</a>
+                            <a href="{{route('deleteWallet',[$user->id, $wallet->id])}}"
+                               onclick="return confirm('Are you sure?')" class="btn btn-danger m-b-5 m-l-5">Delete</a>
                         </div>
                     </div>
                 @endforeach

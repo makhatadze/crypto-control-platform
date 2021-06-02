@@ -155,4 +155,13 @@ class UsersController extends Controller
             'user' => $user
         ]);
     }
+
+    public function deleteWallet(User $user, Wallet $wallet)
+    {
+        if (!$wallet->delete()) {
+            return redirect(route('userWallets', $user->id))->with('warning', 'Wallet not deleted.');
+        }
+        return redirect(route('userWallets', $user->id))->with('success', 'Wallet deleted.');
+
+    }
 }
