@@ -22,15 +22,15 @@ if (count($errors)) {
 
 @section('content')
     <section class="sub-page-banner parallax" id="banner" style="background-position: 50% -646.5px; >
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 wow fadeInUp animated" style="visibility: visible;">
-                    <div class="page-banner text-center">
-                        <h1 class="sub-banner-title" >Welcome back {{$user->name}}</h1>
-                    </div>
-                </div>
+        <div class=" container">
+    <div class="row">
+        <div class="col-md-12 wow fadeInUp animated" style="visibility: visible;">
+            <div class="page-banner text-center">
+                <h1 class="sub-banner-title">Welcome back {{$user->name}}</h1>
             </div>
         </div>
+    </div>
+    </div>
     </section>
     <section class="faq-part skyblue pt-100" style=" background-color: rgba(18,29,51, .8);">
         <div class="container">
@@ -59,31 +59,46 @@ if (count($errors)) {
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade  {{$visible === 'general' ? 'show active' : ''}}"
                              style="min-height: 600px" id="general" role="tabpanel">
-                            <div class="row" style="padding-top: 10%">
-                                <div class="col-md-6 pb-65">
-                                    <div class="faq-tab">
-                                        <h3>My Wallet: {{$user->wallet ? $user->wallet->wallet : ''}}</h3>
-                                        <br>
-                                        <h3>Status:
-                                            @if($user->wallet)
-                                                @if($user->wallet->status === 0)
-                                                    Frozen
-                                                @elseif($user->wallet->status === 1)
-                                                    Active
-                                                @else
-                                                    Blocked
-                                                @endif
-                                            @endif
-                                        </h3>
-                                        <br>
-                                        <br>
-                                        <h1>Total Balance: {{$user->wallet ? $user->wallet->total_balance : ''}} USD</h1>
-                                        <br>
-                                        <h1>Available
-                                            Balance: {{$user->wallet ? $user->wallet->available_balance : ''}} USD</h1>
+                            @if(!count($user->wallets))
+                                <div class="row" style="padding-top: 10%">
+                                    <div class="col-md-6 pb-65">
+                                        <div class="faq-tab">
+                                            <h3>No Wallets</h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @else
+                                @foreach($user->wallets as $key => $wallet)
+                                    <div class="row" style="padding-top: 3%">
+                                        <div class="col-md-6 pb-65">
+                                            <div class="faq-tab">
+                                                <h3>My Wallet - {{$key +1}}
+                                                    : {{$wallet->wallet}}</h3>
+                                                <br>
+                                                <h3>Status:
+                                                    @if($wallet->status === 0)
+                                                        Frozen
+                                                    @elseif($wallet->status === 1)
+                                                        Active
+                                                    @else
+                                                        Blocked
+                                                    @endif
+                                                </h3>
+                                                <br>
+                                                <br>
+                                                <h2>Total Balance: {{$wallet->total_balance }} USD
+                                                </h2>
+                                                <br>
+                                                <h2>Available
+                                                    Balance: {{$wallet->available_balance}} USD
+
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+
                         </div>
                         <div class="tab-pane fade {{$visible === 'verification' ? 'show active' : ''}}"
                              id="verification"
@@ -383,7 +398,8 @@ if (count($errors)) {
                                     <h5>Amount</h5>
 
                                     <div class="form-group @error('amount') has-error @enderror">
-                                        <input class="form-control" name="amount" placeholder="Enter Amount" type="text">
+                                        <input class="form-control" name="amount" placeholder="Enter Amount"
+                                               type="text">
                                         @error('amount')
                                         <div id="email-error" class="help-block animated fadeInDown">
                                             {{$message}}
@@ -409,7 +425,8 @@ if (count($errors)) {
                                         <h5>Amount</h5>
 
                                         <div class="form-group @error('amount') has-error @enderror">
-                                            <input class="form-control" name="amount" placeholder="Enter Amount" type="text">
+                                            <input class="form-control" name="amount" placeholder="Enter Amount"
+                                                   type="text">
                                             @error('amount')
                                             <div id="email-error" class="help-block animated fadeInDown">
                                                 {{$message}}
